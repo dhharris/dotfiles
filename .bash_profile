@@ -1,6 +1,22 @@
-# Fix Kartograph python library (GDAL requirement)
-export PYTHONPATH=$PYTHONPATH:/Library/Frameworks/GDAL.framework/Versions/1.11/Python/2.7/site-packages
+# Append to history file
+shopt -s histappend
 
+# Use one command per line
+shopt -s cmdhist
+
+# Allow a larger history file
+HISTSIZE=130000
+HISTFILESIZE=-1
+
+# Don't store specific lines
+HISTCONTROL=ignoreboth
+HISTIGNORE='ls:bg:fg:history'
+
+# Record timestamps
+HISTTIMEFORMAT='%F %T '
+
+# Store history immediately
+PROMPT_COMMAND='history -a'
 
 # Default to pip3 instead of pip
 alias pip='pip3'

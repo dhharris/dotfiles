@@ -45,11 +45,7 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=500
-
-call plug#begin()
-Plug 'rust-lang/rust.vim'
-call plug#end()
+set history=1000
 
 " Enable filetype plugins
 filetype plugin on
