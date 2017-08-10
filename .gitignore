@@ -3,6 +3,7 @@
 
 # But not these files
 !.gitignore
+!.gitconfig
 !.vimrc
 !.bash_profile
 !.tmux.conf

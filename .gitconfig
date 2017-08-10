@@ -1,0 +1,12 @@
+[user]
+	name = David Harris
+	email = dhharris9@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
