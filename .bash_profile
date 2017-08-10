@@ -1,3 +1,8 @@
+# Use tmux by default
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
+
 # Append to history file
 shopt -s histappend
 
@@ -64,3 +69,4 @@ cdf() {
 # May be a different command on your system
 #vidcontrol -f 8x16 ~/.config/ter-u16n.fnt
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
