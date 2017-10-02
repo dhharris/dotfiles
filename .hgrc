@@ -1,2 +1,7 @@
 [extensions]
 histedit =
+amend =
+smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
+# Hg-git extensions: must run `easy_install hg-git` first
+hgext.bookmarks =
+hggit =
