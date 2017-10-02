@@ -1,5 +1,6 @@
 [extensions]
 # Built-ins
+convert =
 histedit =
 progress =
 purge =
