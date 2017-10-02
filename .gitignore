@@ -2,10 +2,10 @@
 *
 
 # But not these files
-!.gitignore
+!.bashrc
+!.bash_profile
 !.gitconfig
+!.gitignore
 !.hgrc
 !.vimrc
-!.bash_profile
-!.bashrc
 !.tmux.conf
