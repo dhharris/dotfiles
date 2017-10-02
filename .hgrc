@@ -1,6 +1,10 @@
 [extensions]
-histedit =
 amend =
+histedit =
+progress =
+purge =
+
+# hg-experimental (Facebook)
 smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
 
 # Hg-git extensions: `easy_install hg-git`
