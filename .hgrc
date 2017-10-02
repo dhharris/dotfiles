@@ -2,6 +2,10 @@
 histedit =
 amend =
 smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
-# Hg-git extensions: must run `easy_install hg-git` first
+
+# Hg-git extensions: `easy_install hg-git`
 hgext.bookmarks =
 hggit =
+
+# Evolve extension: `pip install --user hg-evolve`
+evolve =
