@@ -9,3 +9,6 @@ hggit =
 
 # Evolve extension: `pip install --user hg-evolve`
 evolve =
+
+[ui]
+username = Hugh Harris <dhharris9@gmail.com>
