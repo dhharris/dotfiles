@@ -4,6 +4,7 @@ convert =
 histedit =
 progress =
 purge =
+rebase =
 
 # hg-experimental (Facebook): https://bitbucket.org/facebook/hg-experimental
 amend =
