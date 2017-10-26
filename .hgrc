@@ -18,4 +18,5 @@ hggit =
 evolve =
 
 [ui]
+merge = internal:merge3
 username = Hugh Harris <dhharris9@gmail.com>
