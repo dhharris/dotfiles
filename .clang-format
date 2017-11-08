@@ -5,6 +5,7 @@ ColumnLimit: 80
 ---
 Language: Cpp
 IndentWidth: 8
+IndentCaseLabels: true
 AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: false
