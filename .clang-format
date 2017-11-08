@@ -7,7 +7,7 @@ Language: Cpp
 IndentWidth: 8
 IndentCaseLabels: true
 AllowShortBlocksOnASingleLine: false
-AllowShortCaseLabelsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: false
 AllowShortLoopsOnASingleLine: true
 BreakBeforeBraces: Custom
