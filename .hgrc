@@ -18,5 +18,6 @@ hggit =
 evolve =
 
 [ui]
-merge = internal:merge3
+# Merge by manually editing the files (like in FB)
+merge = internal:merge3 
 username = Hugh Harris <dhharris9@gmail.com>
