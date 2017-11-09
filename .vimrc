@@ -232,11 +232,11 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 8 spaces
-" => 4 spaces for python programs, following the PEP 8 coding style guidelines
-set shiftwidth=8
-set tabstop=8 
-autocmd FileType python setlocal tabstop=4 shiftwidth=4
+" 1 tab == 4 spaces
+" => 8 spaces for C programs
+set shiftwidth=4
+set tabstop=4
+autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8
 
 " Limit columns to 80 characters
 " => 79 characters for python programs
