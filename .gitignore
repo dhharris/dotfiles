@@ -8,5 +8,6 @@
 !.gitconfig
 !.gitignore
 !.hgrc
+!.inputrc
 !.vimrc
 !.tmux.conf
