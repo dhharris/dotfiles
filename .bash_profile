@@ -41,6 +41,10 @@ alias mysql='/usr/local/mysql/bin/mysql'
 # Set default editor to vim (useful for svn propedit)
 export EDITOR=vim
 
+# Set default C compiler (Clang if available)
+command -v clang >/dev/null 2>&1 && export CC=clang
+    
+
 # On OS X, the trash utility moves files to the trash.
 # This alias prevents me from accidentally deleting things
 # that may be important.
