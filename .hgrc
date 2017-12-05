@@ -7,10 +7,12 @@ purge =
 rebase =
 
 # hg-experimental (Facebook): https://bitbucket.org/facebook/hg-experimental
+# mkdir .hgext && cd .hgext && hg clone https://bitbucket.org/facebook/hg-experimental
 amend =
 smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
 
 # Hg-git extensions: `easy_install hg-git`
+# requires setuptools and cython (pip packages)
 hgext.bookmarks =
 hggit =
 
