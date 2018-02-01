@@ -35,6 +35,9 @@ source $HOME/.cargo/env
 # Use gmake as default version of make
 #alias make=gmake
 
+# Configure pyenv if it exists
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 # Easy mysql startup
 alias mysql='/usr/local/mysql/bin/mysql'
 
