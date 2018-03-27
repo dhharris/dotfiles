@@ -29,9 +29,6 @@ alias pip='pip3'
 # Set vim mode
 set -o vi
 
-# Put rust stuff on the PATH
-source $HOME/.cargo/env
-
 # Use gmake as default version of make
 #alias make=gmake
 
