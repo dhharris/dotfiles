@@ -44,7 +44,6 @@ export EDITOR=vim
 # Set default C compiler (Clang if available)
 command -v clang >/dev/null 2>&1 && export CC=clang
     
-
 # On OS X, the trash utility moves files to the trash.
 # This alias prevents me from accidentally deleting things
 # that may be important.
@@ -60,17 +59,5 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 # Make grep use colors by default
 export GREP_OPTIONS='--color=auto'
 
-cdf() {
-        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-        if [ "$target" != "" ]; then
-                cd "$target"; pwd
-        else
-                echo 'No Finder window found' >&2
-        fi
-}
-
-# Set default console font to Terminus
-# May be a different command on your system
-#vidcontrol -f 8x16 ~/.config/ter-u16n.fnt
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
