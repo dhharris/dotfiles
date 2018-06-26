@@ -36,5 +36,5 @@ fi
 if (( $counter == 0 )); then
     echo "Nothing to do"
 else
-    echo "Done!"
+    echo "Done!\nRestart Terminal for changes to take effect."
 fi
