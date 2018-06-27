@@ -32,6 +32,8 @@ set -o vi
 # Use gmake as default version of make
 #alias make=gmake
 
+#CHEF.NO.SOURCE
+
 # Configure pyenv if it exists
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
