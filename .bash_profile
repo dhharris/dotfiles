@@ -32,7 +32,12 @@ set -o vi
 # Use gmake as default version of make
 #alias make=gmake
 
+# ~~~ fb specific ~~~
 #CHEF.NO.SOURCE
+if [ -f ~/.bash_profile_fb ]; then
+        source ~/.bash_profile_fb
+fi
+# ~~~~~~~~~~~~~~~~~~~
 
 # Configure pyenv if it exists
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -63,3 +68,4 @@ export GREP_OPTIONS='--color=auto'
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
