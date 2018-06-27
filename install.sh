@@ -17,6 +17,13 @@ if ! command_exists reattach-to-user-namespace; then
     ((counter++))
 fi
 
+if ! command_exists tmux; then
+    echo "Installing tmux..."
+    brew update
+    brew install tmux
+    ((counter++))
+fi
+
 # Install Vundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle..."
