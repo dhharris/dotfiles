@@ -17,7 +17,7 @@ hgext.bookmarks =
 hggit =
 
 # Evolve extension: `pip install --user hg-evolve`
-evolve =
+#evolve =
 
 [ui]
 # Merge by manually editing the files (like in FB)
