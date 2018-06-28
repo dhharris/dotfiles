@@ -24,6 +24,13 @@ if ! command_exists tmux; then
     ((counter++))
 fi
 
+if ! command_exists hg; then
+    echo "Installing mercurial..."
+    brew update
+    brew install mercurial
+    ((counter++))
+fi
+
 # Install Vundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle..."
