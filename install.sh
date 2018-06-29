@@ -25,16 +25,12 @@ link() {
     backup $2; ln -sf $1 $2 2>/dev/null
 
     echo "$2 is successfully linked."
-
-    if [ "$2" == "zshrc" ]; then restart_required=true; fi
   fi
 }
 
-##### Backup currently used dotfiles #####
+##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
-bin=/usr/local/bin
 dotfiles=$HOME/dotfiles
-restart_required=false
 
 ##### Dependencies #####
 
@@ -89,4 +85,14 @@ else
 fi
 
 ##### Install symlinks #####
-#link $dotfiles/bash_profile $HOME/.bash_profile
+link $dotfiles/shell/bash_profile $HOME/.bash_profile
+link $dotfiles/shell/bashrc $HOME/.bashrc
+link $dotfiles/shell/inputrc $HOME/.inputrc
+
+link $dotfiles/git/gitconfig $HOME/.gitconfig
+link $dotfiles/hg/hgrc $HOME/.hgrc
+
+link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+
+link $dotfiles/vim/vimrc $HOME/.vimrc
+link $dotfiles/vim/clang-format $HOME/.clang-format
