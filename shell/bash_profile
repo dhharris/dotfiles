@@ -34,8 +34,8 @@ set -o vi
 
 # ~~~ fb specific ~~~
 #CHEF.NO.SOURCE
-if [ -f ~/.bash_profile_fb ]; then
-        source ~/.bash_profile_fb
+if [ -f ~/bash_profile_fb ]; then
+        source ~/bash_profile_fb
 fi
 # ~~~~~~~~~~~~~~~~~~~
 
