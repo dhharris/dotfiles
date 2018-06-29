@@ -10,6 +10,6 @@
 !.hgrc
 !.inputrc
 !.vimrc
-!.tmux.conf
+!.tmux*.conf
 !install.sh
 !README.md
