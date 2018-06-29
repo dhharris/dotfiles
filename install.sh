@@ -20,11 +20,11 @@ backup() {
 }
 
 link() {
-  if ! diff $1 $2 &>/dev/null; then
-    backup $2; ln -sf $1 $2 2>/dev/null
+    if ! diff $1 $2 &>/dev/null; then
+        backup $2; ln -sf $1 $2 2>/dev/null
 
-    echo "$2 is successfully linked."
-  fi
+        echo "$2 is successfully linked."
+    fi
 }
 
 ##### Set helper vars #####
@@ -34,16 +34,20 @@ counter=0
 
 ##### Dependencies #####
 
-# Check if homebrew is installed, and update
-if ! command_exists brew; then 
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ((counter++)) 
-fi
+## MacOS Specific ##
 
-if ! command_exists reattach-to-user-namespace; then
-    brew update
-    brew install reattach-to-user-namespace
-    ((counter++))
+# Check if homebrew is installed, and update
+if uname | grep -q Darwin; then
+    if ! command_exists brew; then 
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        ((counter++)) 
+    fi
+
+    if ! command_exists reattach-to-user-namespace; then
+        brew update
+        brew install reattach-to-user-namespace
+        ((counter++))
+    fi
 fi
 
 if ! command_exists tmux; then
