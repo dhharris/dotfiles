@@ -1,9 +1,42 @@
 #!/bin/sh
 counter=0
 
+##### Helper functions #####
+
 command_exists () {
     type "$1" &> /dev/null ;
 }
+
+backup() {
+    if [ ! -d $backup_dir ]; then
+        mkdir "$backup_dir"
+        echo "Backup directory $backup_dir created."
+    fi
+
+    if [ -f $1 ]; then
+        echo $1
+        mv $1 $backup_dir
+        echo "$1 is backed up in $backup_dir"
+    fi
+}
+
+link() {
+  if ! diff $1 $2 &>/dev/null; then
+    backup $2; ln -sf $1 $2 2>/dev/null
+
+    echo "$2 is successfully linked."
+
+    if [ "$2" == "zshrc" ]; then restart_required=true; fi
+  fi
+}
+
+##### Backup currently used dotfiles #####
+backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
+bin=/usr/local/bin
+dotfiles=$HOME/dotfiles
+restart_required=false
+
+##### Dependencies #####
 
 # Check if homebrew is installed, and update
 if ! command_exists brew; then 
@@ -50,7 +83,10 @@ if [ ! -d ~/.hgext/hg-experimental ]; then
 fi
 
 if (( $counter == 0 )); then
-    echo "Nothing to do"
+    echo "No dependencies to install"
 else
-    echo "Done!\nRestart Terminal for changes to take effect."
+    echo "Installed $counter dependencies"
 fi
+
+##### Install symlinks #####
+#link $dotfiles/bash_profile $HOME/.bash_profile
