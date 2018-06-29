@@ -1,5 +1,4 @@
 #!/bin/sh
-counter=0
 
 ##### Helper functions #####
 
@@ -31,6 +30,7 @@ link() {
 ##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
 dotfiles=$HOME/dotfiles
+counter=0
 
 ##### Dependencies #####
 
