@@ -57,8 +57,6 @@ Plugin 'google/vim-glaive'
 Plugin 'tomlion/vim-solidity'
 " Latex plugin
 Plugin 'lervag/vimtex'
-" Python formatting plugin
-Plugin 'ambv/black'
 " Calculator
 Plugin 'gregsexton/VimCalc'
 
