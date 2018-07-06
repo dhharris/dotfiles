@@ -59,6 +59,8 @@ Plugin 'tomlion/vim-solidity'
 Plugin 'lervag/vimtex'
 " Python formatting plugin
 Plugin 'ambv/black'
+" Calculator
+Plugin 'gregsexton/VimCalc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
