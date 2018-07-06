@@ -66,5 +66,5 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 # Make grep use colors by default
 export GREP_OPTIONS='--color=auto'
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
