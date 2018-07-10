@@ -1,11 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Contact: 
 "       David Harris
 "       dhharris9@gmail.com
 "
 " Sections:
 "    -> Vundle
-"    -> Plugins
+"       -> Plugins
+"       -> Configuration
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -41,9 +41,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"=========================
+"""""""""""""""""""""""""""""""
 " => Plugins
-"=========================
+"""""""""""""""""""""""""""""""
 " Format rust code
 Plugin 'rust-lang/rust.vim'
 " Add maktaba and codefmt to the runtimepath.
@@ -53,12 +53,20 @@ Plugin 'google/vim-codefmt'
 " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
-" Solidarity syntax highlighting
-Plugin 'tomlion/vim-solidity'
 " Latex plugin
 Plugin 'lervag/vimtex'
 " Calculator
 Plugin 'gregsexton/VimCalc'
+" Syntax highlighting for Solidity
+Plugin 'tomlion/vim-solidity'
+" Syntax highlighting and typechecker integration for Hack
+Plugin 'hhvm/vim-hack'
+" Syntax highlighting for XHP
+Plugin 'mxw/vim-xhp'
+" Syntastic
+Plugin 'vim-syntastic/syntastic'
+" Flake8 linter
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -77,6 +85,27 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+"""""""""""""""""""""""""""""""
+" => Configuration
+"""""""""""""""""""""""""""""""
+" flake8 (Use by typing <F7>)
+let g:flake8_cmd = systemlist('which flake8')[0]
+
+" Syntastic (recommended settings)
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["sh"] }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -317,6 +346,9 @@ endtry
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Use whole screen for scrolling
+set scrolloff=0
+
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -387,6 +419,11 @@ map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
+
+" BigGrep (fb)
+if filereadable("/home/engshare/admin/scripts/vim/biggrep.vim")
+    source /home/engshare/admin/scripts/vim/biggrep.vim
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

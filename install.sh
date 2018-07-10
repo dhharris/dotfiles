@@ -57,6 +57,13 @@ if ! command_exists tmux; then
     ((counter++))
 fi
 
+if ! command_exists flake8; then
+    echo "Installing flake8..."
+    brew update
+    brew install flake8
+    ((counter++))
+fi
+
 if ! command_exists hg; then
     echo "Installing mercurial..."
     brew update
