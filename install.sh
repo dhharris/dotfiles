@@ -64,7 +64,10 @@ if ! command_exists hg; then
     ((counter++))
 fi
 
-# Install Vundle
+# Must link vimrc before installing vim plugins
+link $dotfiles/vim/vimrc $HOME/.vimrc
+
+# Install Vundle & Plugins
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle..."
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -98,5 +101,4 @@ link $dotfiles/hg/hgrc $HOME/.hgrc
 
 link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
-link $dotfiles/vim/vimrc $HOME/.vimrc
 link $dotfiles/vim/clang-format $HOME/.clang-format
