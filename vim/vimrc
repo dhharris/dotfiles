@@ -351,7 +351,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Use whole screen for scrolling
 set scrolloff=0
 
-
+" Haskel formatter mapped to F4
+vmap <F4> !cleanupHaxl --all 2>/dev/null<CR>
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
