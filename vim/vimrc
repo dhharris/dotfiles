@@ -10,8 +10,8 @@
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
+"    -> Text, tab, indent and lines 
+"    -> Visual mode
 "    -> Moving around, tabs and buffers
 "    -> Status line
 "    -> Editing mappings
@@ -174,6 +174,9 @@ endif
 "Always show current position
 set ruler
 
+" Show (partial) command in status line
+set showcmd
+
 " Height of the command bar
 set cmdheight=2
 
@@ -262,12 +265,12 @@ func! DeleteTrailingWS()
 endfunc
 
 " Set up to work for certain filetypes
-autocmd BufWritePre * if count(['c', 'cpp', 'python'],&filetype)
+autocmd BufWritePre * if count(['c', 'cpp', 'haskell', 'python'],&filetype)
             \ | call DeleteTrailingWS()
             \ | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" => Text, tab, indent and lines 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -277,14 +280,18 @@ set smarttab
 
 " 1 tab == 4 spaces
 " => 8 spaces for C programs
-set shiftwidth=4
+
+" Number of spaces for auto indent
+set shiftwidth=4 
 set tabstop=4
-autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8
+set softtabstop=4
+autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
 " Limit columns to 80 characters
 " => 79 characters for python programs
 set columns=80
-autocmd FileType python setlocal columns=79
+set textwidth=80
+autocmd FileType python setlocal columns=79 textwidth=79
 
 " Highlight anything past the column limit
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -296,12 +303,11 @@ autocmd FileType python match OverLength /\%80v.\+/
 set lbr
 set tw=500
 
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
+set autoindent 
+set wrap 
 
 """"""""""""""""""""""""""""""
-" => Visual mode related
+" => Visual mode 
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
