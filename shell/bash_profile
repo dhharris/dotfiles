@@ -37,10 +37,6 @@ set -o vi
 if [ -f ~/bash_profile_fb.sh ]; then
     source ~/bash_profile_fb.sh
 fi
-
-if [-f /usr/facebook/ops/rc/master.bashrc ]; then
-    source /usr/facebook/ops/rc/master.bashrc
-fi
 # ~~~~~~~~~~~~~~~~~~~
 
 # Configure pyenv if it exists
