@@ -35,7 +35,11 @@ set -o vi
 # ~~~ fb specific ~~~
 #CHEF.NO.SOURCE
 if [ -f ~/bash_profile_fb.sh ]; then
-        source ~/bash_profile_fb.sh
+    source ~/bash_profile_fb.sh
+fi
+
+if [-f /usr/facebook/ops/rc/master.bashrc ]; then
+    source /usr/facebook/ops/rc/master.bashrc
 fi
 # ~~~~~~~~~~~~~~~~~~~
 

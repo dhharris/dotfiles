@@ -256,6 +256,7 @@ set ffs=unix,dos,mac
 
 " Associate FB config files with python
 autocmd BufEnter *.cconf :setlocal filetype=python
+autocmd BufEnter *.cinc :setlocal filetype=python
 
 " Delete trailing white space on save
 func! DeleteTrailingWS()
