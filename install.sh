@@ -57,10 +57,18 @@ if ! command_exists tmux; then
     ((counter++))
 fi
 
+if ! command_exists python; then
+    echo "Installing tmux..."
+    brew update
+    brew install tmux
+    ((counter++))
+fi
+
 if ! command_exists flake8; then
     echo "Installing flake8..."
     brew update
     brew install flake8
+    pip install flake8-bugbear
     ((counter++))
 fi
 
@@ -84,13 +92,13 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 # Install hg-experimental package
-if [ ! -d ~/.hgext/hg-experimental ]; then
-    echo "Installing hg extensions..."
-    mkdir -p ~/.hgext
-    cd ~/.hgext
-    hg clone https://bitbucket.org/facebook/hg-experimental
-    ((counter++))
-fi
+#if [ ! -d ~/.hgext/hg-experimental ]; then
+#    echo "Installing hg extensions..."
+#    mkdir -p ~/.hgext
+#    cd ~/.hgext
+#    hg clone https://bitbucket.org/facebook/hg-experimental
+#    ((counter++))
+#fi
 
 if (( $counter == 0 )); then
     echo "No dependencies to install"
