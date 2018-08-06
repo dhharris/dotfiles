@@ -106,6 +106,8 @@ link $dotfiles/shell/inputrc $HOME/.inputrc
 link $dotfiles/git/gitconfig $HOME/.gitconfig
 link $dotfiles/hg/hgrc $HOME/.hgrc
 
+link $dotfiles/py/flake8 $HOME/.config/flake8
+
 link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 link $dotfiles/vim/clang-format $HOME/.clang-format

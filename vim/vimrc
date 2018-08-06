@@ -289,15 +289,15 @@ set softtabstop=4
 autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 softtabstop=8
 
 " Limit columns to 80 characters
-" => 79 characters for python programs
+" => 88 characters for python programs
 set columns=80
 set textwidth=80
-autocmd FileType python setlocal columns=79 textwidth=79
+autocmd FileType python setlocal columns=88 textwidth=88
 
 " Highlight anything past the column limit
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-autocmd FileType python match OverLength /\%80v.\+/
+autocmd FileType python match OverLength /\%89v.\+/
 
 
 " Linebreak on 500 characters
