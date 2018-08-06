@@ -92,13 +92,13 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 # Install hg-experimental package
-#if [ ! -d ~/.hgext/hg-experimental ]; then
-#    echo "Installing hg extensions..."
-#    mkdir -p ~/.hgext
-#    cd ~/.hgext
-#    hg clone https://bitbucket.org/facebook/hg-experimental
-#    ((counter++))
-#fi
+if [ ! -d ~/.hgext/hg-experimental ]; then
+    echo "Installing hg extensions..."
+    mkdir -p ~/.hgext
+    cd ~/.hgext
+    hg clone https://bitbucket.org/facebook/hg-experimental
+    ((counter++))
+fi
 
 if (( $counter == 0 )); then
     echo "No dependencies to install"
