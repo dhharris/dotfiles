@@ -1,12 +1,11 @@
-if [ -f /usr/facebook/ops/rc/master.bashrc ]; then
-    source /usr/facebook/ops/rc/master.bashrc
-fi
-
-if [ -e ~/fbsource/fbcode/servicefoundry/tools/sf_bash_environment ]; then
-    source ~/fbsource/fbcode/servicefoundry/tools/sf_bash_environment
-fi
-
 if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile
 fi
 
+if [ -f /usr/facebook/ops/rc/master.bashrc ]; then
+    source /usr/facebook/ops/rc/master.bashrc
+fi
+
+if [ -f ~/fbsource/fbcode/servicefoundry/tools/sf_bash_environment ]; then
+    source ~/fbsource/fbcode/servicefoundry/tools/sf_bash_environment
+fi
