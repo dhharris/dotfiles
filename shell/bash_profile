@@ -23,9 +23,6 @@ HISTTIMEFORMAT='%F %T '
 # Store history immediately
 PROMPT_COMMAND='history -a'
 
-# Default to pip3 instead of pip
-alias pip='pip3'
-
 # Set vim mode
 set -o vi
 
