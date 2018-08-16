@@ -30,6 +30,7 @@ link() {
 ##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
 dotfiles=$HOME/dotfiles
+mpd=$HOME/.config/mpd
 counter=0
 
 ##### Dependencies #####
@@ -119,3 +120,10 @@ link $dotfiles/py/flake8 $HOME/.config/flake8
 link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 link $dotfiles/vim/clang-format $HOME/.clang-format
+
+# Create mpd config directory if it doesn't exist
+if [ ! -d "$mpd" ]; then
+    mkdir $mpd
+fi
+
+link $dotfiles/config/mpd/mpd.conf $mpd/mpd.conf
