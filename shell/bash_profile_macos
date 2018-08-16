@@ -1,0 +1,14 @@
+# Easy use of VLC from command line
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+
+# On OS X, the trash utility moves files to the trash.
+# This alias prevents me from accidentally deleting things
+# that may be important.
+#alias rm=trash
+
+py_version="$(python -V 2>&1)"
+if ! [[ $py_version  =~ ^Python\ 3.* ]]; then
+    RED='\033[0;31m'
+    NC='\033[0m' # No color
+    echo -e "${RED}[WARN]${NC} python version <3"
+fi

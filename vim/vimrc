@@ -258,6 +258,9 @@ set ffs=unix,dos,mac
 autocmd BufEnter *.cconf :setlocal filetype=python
 autocmd BufEnter *.cinc :setlocal filetype=python
 
+" Anything that contains bash in the filename is associated with bash
+autocmd BufEnter *bash* :setlocal filetype=sh
+
 " Delete trailing white space on save
 func! DeleteTrailingWS()
     exe "normal mz"
