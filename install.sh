@@ -121,9 +121,12 @@ link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 link $dotfiles/vim/clang-format $HOME/.clang-format
 
-# Create mpd config directory if it doesn't exist
-if [ ! -d "$mpd" ]; then
-    mkdir $mpd
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
+else
+    # Create mpd config directory if it doesn't exist
+    if [ ! -d "$mpd" ]; then
+        mkdir $mpd
+    fi
+    link $dotfiles/mpd/mpd.conf $mpd/mpd.conf
 fi
-
-link $dotfiles/config/mpd/mpd.conf $mpd/mpd.conf
