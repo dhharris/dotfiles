@@ -1,12 +1,10 @@
 # Set vim mode
 set -o vi
 
-# Use tmux by default
+# Use tmux by default on local connections
 if command -v tmux>/dev/null ; then
     if  [ ! "$SSH_CONNECTION" ]; then
         [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux
-    else
-        tmux -CC
     fi
 fi
 
