@@ -2,8 +2,8 @@
 set -o vi
 
 # Use tmux by default
-if command -v tmux>/dev/null && [ ! $SSH_CONNECTION ]; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+if command -v tmux>/dev/null && [ ! "$SSH_CONNECTION" ]; then
+  [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux
 fi
 
 # Append to history file
