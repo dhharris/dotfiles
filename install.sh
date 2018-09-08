@@ -121,6 +121,8 @@ link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 link $dotfiles/vim/clang-format $HOME/.clang-format
 
+link $dotfiles/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
 else
