@@ -1,6 +1,7 @@
 [user]
 	name = David Harris
 	email = dhharris9@gmail.com
+	signingkey = 4FBC8D3F
 [core]
 	editor = vim
 [push]
