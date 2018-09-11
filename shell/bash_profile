@@ -37,9 +37,6 @@ export EDITOR=vim
 # Set default C compiler (Clang if available)
 command -v clang >/dev/null 2>&1 && export CC=clang
 
-# Warn if python version is <3
-
-    
 # Change bash prompt
 export PS1="[\u@\h \W]\\$ "
 
