@@ -264,6 +264,7 @@ set ffs=unix,dos,mac
 
 " Associate FB config files with python
 autocmd BufEnter *.cconf :setlocal filetype=python
+autocmd BufEnter *.mcconf :setlocal filetype=python
 autocmd BufEnter *.cinc :setlocal filetype=python
 
 " Anything that contains bash in the filename is associated with bash
