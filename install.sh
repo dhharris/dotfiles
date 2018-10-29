@@ -94,9 +94,6 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     ((counter++))
 fi
 
-# Link ale files
-link $HOME/fbsource/fbcode/experimental/gwicke/vim/cquery_buck.vim $HOME/.vim/bundle/ale/ale_linters/cpp/cquery_buck.vim
-
 # Install hg-experimental package
 if ! [[ -d ~/.hgext/hg-experimental || $(hostname -s) = dev* ]]; then
     echo "Installing hg extensions..."
