@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ##### Helper functions #####
 
@@ -20,10 +20,12 @@ backup() {
 }
 
 link() {
-    if ! diff $1 $2 &>/dev/null; then
-        backup $2; ln -sf $1 $2 2>/dev/null
+    if [[ -f $1 ]] && [[ -f $2 ]]; then
+        if ! diff $1 $2 &>/dev/null; then
+            backup $2; ln -sf $1 $2 2>/dev/null
 
-        echo "$2 is successfully linked."
+            echo "$2 is successfully linked."
+        fi
     fi
 }
 
@@ -92,8 +94,11 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
     ((counter++))
 fi
 
+# Link ale files
+link $HOME/fbsource/fbcode/experimental/gwicke/vim/cquery_buck.vim $HOME/.vim/bundle/ale/ale_linters/cpp/cquery_buck.vim
+
 # Install hg-experimental package
-if [ ! -d ~/.hgext/hg-experimental ]; then
+if ! [[ -d ~/.hgext/hg-experimental || $(hostname -s) = dev* ]]; then
     echo "Installing hg extensions..."
     mkdir -p ~/.hgext
     cd ~/.hgext
