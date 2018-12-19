@@ -13,7 +13,7 @@ smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
 
 # Hg-git extensions: `easy_install hg-git`
 # requires setuptools and cython (pip packages)
-hgext.bookmarks =
+bookmarks =
 hggit =
 
 # Evolve extension: `pip install --user hg-evolve`
