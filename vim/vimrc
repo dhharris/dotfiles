@@ -102,20 +102,22 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wextra' 
 let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 let g:syntastic_python_checkers = ['flake8']
-
 let g:syntastic_php_checkers = ['hh']
 
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["sh"] }
+    \ 'mode': 'active',
+    \ 'passive_filetypes': ['sh'] }
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -266,6 +268,8 @@ set ffs=unix,dos,mac
 autocmd BufEnter *.cconf :setlocal filetype=python
 autocmd BufEnter *.mcconf :setlocal filetype=python
 autocmd BufEnter *.cinc :setlocal filetype=python
+autocmd BufEnter *.tw :setlocal filetype=python
+autocmd BufEnter TARGETS :setlocal filetype=json
 
 " Anything that contains bash in the filename is associated with bash
 autocmd BufEnter *bash* :setlocal filetype=sh
