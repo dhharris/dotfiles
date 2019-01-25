@@ -14,6 +14,9 @@ shopt -s histappend
 # Use one command per line
 shopt -s cmdhist
 
+# Check window size after each command
+shopt -s checkwinsize
+
 # Allow a larger history file
 HISTSIZE=130000
 HISTFILESIZE=-1
@@ -36,6 +39,9 @@ alias mysql='/usr/local/mysql/bin/mysql'
 
 # Set default editor to vim 
 export EDITOR=vim
+
+# cowspeak art
+export COWPATH="$COWPATH:$HOME/.cowsay"
 
 # Set default C compiler (Clang if available)
 command -v clang >/dev/null 2>&1 && export CC=clang
