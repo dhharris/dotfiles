@@ -35,6 +35,7 @@ brew_install_or_nag() {
     else
         brew update
         brew install "$1"
+	((counter++))
     fi
 }
 
@@ -62,38 +63,37 @@ if uname | grep -q Darwin; then
     fi
 fi
 
+# Check for ~/.config directory
+if [ ! -d $HOME/.config ]; then
+    mkdir $HOME/.config
+fi
+
 if ! command_exists tmux; then
     echo "Installing tmux..."
     brew_install_or_nag tmux
-    ((counter++))
 fi
 
 if ! command_exists python; then
     echo "Installing tmux..."
     brew_install_or_nag python
-    ((counter++))
 fi
 
 if ! command_exists flake8; then
     echo "Installing flake8..."
-    brew update
     brew_install_or_nag flake8
     pip install flake8-bugbear
-    ((counter++))
 fi
 
 if ! command_exists hg; then
     echo "Installing mercurial..."
-    brew update
     brew_install_or_nag mercurial
-    ((counter++))
 fi
 
 # Must link vimrc before installing vim plugins
 link $dotfiles/vim/vimrc $HOME/.vimrc
 
 # Install Vundle & Plugins
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle..."
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     echo "Installing Vundle plugins..."
@@ -102,10 +102,10 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 # Install hg-experimental package
-if ! [[ -d ~/.hgext/hg-experimental || $(hostname -s) = dev* ]]; then
+if ! [[ -d $HOME/.hgext/hg-experimental || $(hostname -s) = dev* ]]; then
     echo "Installing hg extensions..."
-    mkdir -p ~/.hgext
-    cd ~/.hgext || return
+    mkdir -p $HOME/.hgext
+    cd $HOME/.hgext || return
     hg clone https://bitbucket.org/facebook/hg-experimental
     ((counter++))
 fi
@@ -123,6 +123,7 @@ link $dotfiles/shell/inputrc $HOME/.inputrc
 
 link $dotfiles/git/gitconfig $HOME/.gitconfig
 link $dotfiles/hg/hgrc $HOME/.hgrc
+
 
 link $dotfiles/py/flake8 $HOME/.config/flake8
 
