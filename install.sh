@@ -29,6 +29,15 @@ link() {
     fi
 }
 
+brew_install_or_nag() {
+    if ! command_exists brew; then
+        echo "Homebrew not detected. Please install $1 manually."
+    else
+        brew update
+        brew install "$1"
+    fi
+}
+
 ##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
 dotfiles=$HOME/dotfiles
@@ -55,22 +64,20 @@ fi
 
 if ! command_exists tmux; then
     echo "Installing tmux..."
-    brew update
-    brew install tmux
+    brew_install_or_nag tmux
     ((counter++))
 fi
 
 if ! command_exists python; then
     echo "Installing tmux..."
-    brew update
-    brew install tmux
+    brew_install_or_nag python
     ((counter++))
 fi
 
 if ! command_exists flake8; then
     echo "Installing flake8..."
     brew update
-    brew install flake8
+    brew_install_or_nag flake8
     pip install flake8-bugbear
     ((counter++))
 fi
@@ -78,7 +85,7 @@ fi
 if ! command_exists hg; then
     echo "Installing mercurial..."
     brew update
-    brew install mercurial
+    brew_install_or_nag mercurial
     ((counter++))
 fi
 
@@ -98,12 +105,12 @@ fi
 if ! [[ -d ~/.hgext/hg-experimental || $(hostname -s) = dev* ]]; then
     echo "Installing hg extensions..."
     mkdir -p ~/.hgext
-    cd ~/.hgext
+    cd ~/.hgext || return
     hg clone https://bitbucket.org/facebook/hg-experimental
     ((counter++))
 fi
 
-if (( $counter == 0 )); then
+if (( counter == 0 )); then
     echo "No dependencies to install"
 else
     echo "Installed $counter dependencies"
