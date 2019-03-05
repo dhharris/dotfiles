@@ -32,6 +32,7 @@ link() {
         fi
         ln -sf $1 $2 2>/dev/null
         echo "$2 is successfully linked."
+        ((counter++))
     fi
 }
 
