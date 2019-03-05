@@ -21,16 +21,16 @@ backup() {
 
 link() {
     if [[ -f $1 ]]; then
-    	if [[ -f $2 ]]; then
-	    file1sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
-	    file2sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
-	    if [ "x$file1sum" = "x$file2sum" ]; then
-		return
-	    else
-	    	backup $2
-	    fi
+        if [[ -f $2 ]]; then
+            file1sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
+            file2sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
+            if [ "x$file1sum" = "x$file2sum" ]; then
+                return
+            else
+                backup $2
+            fi
         fi
-	ln -sf $1 $2 2>/dev/null
+        ln -sf $1 $2 2>/dev/null
         echo "$2 is successfully linked."
     fi
 }
@@ -41,7 +41,7 @@ brew_install_or_nag() {
     else
         brew update
         brew install "$1"
-	((counter++))
+        ((counter++))
     fi
 }
 
