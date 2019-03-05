@@ -11,10 +11,9 @@ rebase =
 amend =
 smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
 
-# Hg-git extensions: `easy_install hg-git`
-# requires setuptools and cython (pip packages)
+# Hg-git extensions: `hg clone https://bitbucket.org/durin42/hg-git`
 bookmarks =
-hggit =
+hggit = ~/.hgext/hg-git/hggit
 
 # Evolve extension: `pip install --user hg-evolve`
 #evolve =
