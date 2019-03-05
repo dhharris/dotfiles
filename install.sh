@@ -46,6 +46,23 @@ brew_install_or_nag() {
     fi
 }
 
+install_hg_plugin() {
+    if [[ $(hostname -s) = dev* ]]; then
+        return
+    fi
+    if ! [[ -d $HOME/.hgext/ ]]; then
+        mkdir -p $HOME/.hgext
+    fi
+    plugin_name=$(echo "$1" | rev | cut -d '/' -f 1 | rev)
+    if ! [[ -d $HOME/.hgext/$plugin_name ]]; then
+        cd $HOME/.hgext || return
+        echo "Installing $plugin_name..."
+        hg clone $1
+        ((counter++))
+    fi
+
+}
+
 ##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
 dotfiles=$HOME/dotfiles
@@ -108,13 +125,10 @@ if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     ((counter++))
 fi
 
-# Install hg-experimental package
-if ! [[ -d $HOME/.hgext/hg-experimental || $(hostname -s) = dev* ]]; then
-    echo "Installing hg extensions..."
-    mkdir -p $HOME/.hgext
-    cd $HOME/.hgext || return
-    hg clone https://bitbucket.org/facebook/hg-experimental
-    ((counter++))
+# Install hg packages
+if command_exists hg; then
+    install_hg_plugin https://bitbucket.org/facebook/hg-experimental
+    install_hg_plugin https://bitbucket.org/durin42/hg-git
 fi
 
 if (( counter == 0 )); then
@@ -155,5 +169,5 @@ fi
 if (( counter == 0 )); then
     echo "Nothing to do"
 else
-    echo "Linked $counter files"
+    echo "Linked $counter file(s)"
 fi
