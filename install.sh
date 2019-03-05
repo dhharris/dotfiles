@@ -20,12 +20,18 @@ backup() {
 }
 
 link() {
-    if [[ -f $1 ]] && [[ -f $2 ]]; then
-        if ! diff $1 $2 &>/dev/null; then
-            backup $2; ln -sf $1 $2 2>/dev/null
-
-            echo "$2 is successfully linked."
+    if [[ -f $1 ]]; then
+    	if [[ -f $2 ]]; then
+	    file1sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
+	    file2sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
+	    if [ "x$file1sum" = "x$file2sum" ]; then
+		return
+	    else
+	    	backup $2
+	    fi
         fi
+	ln -sf $1 $2 2>/dev/null
+        echo "$2 is successfully linked."
     fi
 }
 
@@ -117,6 +123,7 @@ else
 fi
 
 ##### Install symlinks #####
+echo "Linking dotfiles..."
 link $dotfiles/shell/bash_profile $HOME/.bash_profile
 link $dotfiles/shell/bashrc $HOME/.bashrc
 link $dotfiles/shell/inputrc $HOME/.inputrc
