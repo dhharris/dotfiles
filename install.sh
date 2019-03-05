@@ -124,6 +124,7 @@ fi
 
 ##### Install symlinks #####
 echo "Linking dotfiles..."
+counter=0
 link $dotfiles/shell/bash_profile $HOME/.bash_profile
 link $dotfiles/shell/bashrc $HOME/.bashrc
 link $dotfiles/shell/inputrc $HOME/.inputrc
@@ -148,4 +149,10 @@ else
         mkdir $mpd
     fi
     link $dotfiles/mpd/mpd.conf $mpd/mpd.conf
+fi
+
+if (( counter == 0 )); then
+    echo "Nothing to do"
+else
+    echo "Linked $counter files"
 fi
