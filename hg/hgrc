@@ -5,6 +5,7 @@ histedit =
 progress =
 purge =
 rebase =
+strip =
 
 # hg-experimental (Facebook): https://bitbucket.org/facebook/hg-experimental
 # mkdir .hgext && cd .hgext && hg clone https://bitbucket.org/facebook/hg-experimental
