@@ -147,6 +147,7 @@ link $dotfiles/shell/inputrc $HOME/.inputrc
 link $dotfiles/git/gitconfig $HOME/.gitconfig
 link $dotfiles/hg/hgrc $HOME/.hgrc
 
+link $dotfiles/mysql/myclirc $HOME/.myclirc
 
 link $dotfiles/py/flake8 $HOME/.config/flake8
 
