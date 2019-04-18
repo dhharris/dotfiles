@@ -47,7 +47,7 @@ export COWPATH="$COWPATH:$HOME/.cowsay"
 command -v clang >/dev/null 2>&1 && export CC=clang
 
 # Change bash prompt
-export PS1="[\u@\h \W]\\$ "
+export PS1="[\u@\h \w]\\$ \[$(tput sgr0)\]"
 
 # Improve ls with colors, etc
 export CLICOLOR=1
