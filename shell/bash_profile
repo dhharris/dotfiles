@@ -49,9 +49,6 @@ export EDITOR=vim
 # -F makes less quit if the entire output can be displayed
 export LESS='-XRF'
 
-# cowspeak art
-export COWPATH="$COWPATH:$HOME/.cowsay"
-
 # Set default C compiler (Clang if available)
 command -v clang >/dev/null 2>&1 && export CC=clang
 
@@ -79,7 +76,11 @@ fi
 # PATH Updates
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# cowspeak "art"
+export COWPATH="$COWPATH:$HOME/.cowsay"
 
 # Configure pyenv - placed near end since it also manipulates PATH
 if command -v pyenv 1>/dev/null 2>&1; then
