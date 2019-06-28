@@ -31,6 +31,12 @@ HISTTIMEFORMAT='%F %T '
 # Store history immediately
 PROMPT_COMMAND='history -a'
 
+# Set CLICOLOR if you want ansi colors in iTerm2
+export CLICOLOR=1
+
+# Set colors
+export TERM=xterm-256color
+
 # Restore terminal colors
 alias reset_colors='tput sgr0'
 
