@@ -31,10 +31,7 @@ HISTTIMEFORMAT='%F %T '
 # Store history immediately
 PROMPT_COMMAND='history -a'
 
-# Set CLICOLOR if you want ansi colors in iTerm2
-export CLICOLOR=1
-
-# Set colors
+# Allow 256 bits of color 
 export TERM=xterm-256color
 
 # Restore terminal colors
@@ -48,8 +45,9 @@ export EDITOR=vim
 
 # Configure less
 # -X leaves file contents on the screen when less exits (saves to tmux)
+# -R enables colors
 # -F makes less quit if the entire output can be displayed
-export LESS='-XF'
+export LESS='-XRF'
 
 # cowspeak art
 export COWPATH="$COWPATH:$HOME/.cowsay"
@@ -87,4 +85,3 @@ export PATH="$HOME/.cargo/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
