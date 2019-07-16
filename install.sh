@@ -162,10 +162,6 @@ link $dotfiles/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
 if [[ "$OSTYPE" == "darwin"* ]]; then
     link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
 else
-    # Create mpd config directory if it doesn't exist
-    if [ ! -d "$mpd" ]; then
-        mkdir -p $mpd
-    fi
     link $dotfiles/mpd/mpd.conf $mpd/mpd.conf
 fi
 
