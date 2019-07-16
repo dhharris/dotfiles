@@ -159,6 +159,8 @@ link $dotfiles/vim/clang-format $HOME/.clang-format
 
 link $dotfiles/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
 
+link $dotfiles/beets/config.yaml $HOME/.config/beets/config.yaml
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
 else
