@@ -30,6 +30,8 @@ link() {
                 backup $2
             fi
         fi
+        # Make the directory if it does not exist
+        mkdir -p "$(dirname $2)"
         ln -sf $1 $2 2>/dev/null
         echo "$2 is successfully linked."
         ((counter++))
@@ -162,7 +164,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     # Create mpd config directory if it doesn't exist
     if [ ! -d "$mpd" ]; then
-        mkdir $mpd
+        mkdir -p $mpd
     fi
     link $dotfiles/mpd/mpd.conf $mpd/mpd.conf
 fi
