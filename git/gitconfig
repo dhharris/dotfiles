@@ -4,7 +4,7 @@
 	signingkey = 4FBC8D3F
 [core]
 	editor = vim
-    pager = less -+$LESS -FRX
+    	pager = less -+$LESS -FRX
 [push]
 	default = simple
 [alias]
