@@ -1,25 +1,18 @@
 [extensions]
 # Built-ins
+bookmarks =
 convert =
 histedit =
 progress =
 purge =
 rebase =
 strip =
-
-# hg-experimental (Facebook): https://bitbucket.org/facebook/hg-experimental
-# mkdir .hgext && cd .hgext && hg clone https://bitbucket.org/facebook/hg-experimental
 amend =
-smartlog = ~/.hgext/hg-experimental/hgext3rd/smartlog.py
 
 # Hg-git extensions: `hg clone https://bitbucket.org/durin42/hg-git`
-bookmarks =
 hggit = ~/.hgext/hg-git/hggit
 
-# Evolve extension: `pip install --user hg-evolve`
-#evolve =
-
 [ui]
-# Merge by manually editing the files (like in FB)
+# Merge by manually editing the files
 merge = internal:merge3 
 username = Hugh Harris <dhharris9@gmail.com>
