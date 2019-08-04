@@ -251,8 +251,6 @@ endtry
 let g:gruvbox_contrast_dark="hard"
 " Gruvbox dark mode
 set background=dark
-" Set true color terminal
-set termguicolors
 
 " Set extra options when running in GUI mode
 if has("gui_running")
