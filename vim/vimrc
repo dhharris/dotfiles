@@ -99,9 +99,6 @@ endtry
 """""""""""""""""""""""""""""""
 " => Configuration
 """""""""""""""""""""""""""""""
-" flake8 (Use by typing <F7>)
-let g:flake8_cmd = systemlist('which flake8')[0]
-
 " Syntastic (recommended settings)
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
