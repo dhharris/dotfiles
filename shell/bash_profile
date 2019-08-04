@@ -73,6 +73,11 @@ if [ -f ~/bash_profile_fb.sh ]; then
 fi
 #CHEF.NO.SOURCE
 
+# Make vim the default if it is installed
+if [ -x "$(command -v vim)" ]; then
+    alias vi=vim
+fi
+
 # PATH Updates
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
