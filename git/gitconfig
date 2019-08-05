@@ -13,3 +13,5 @@
 	ci = commit
 	st = status
 	a = add
+[include]
+    path = ~/.gitconfig.local
