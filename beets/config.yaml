@@ -3,7 +3,7 @@ library: ~/Music/data/musiclibrary.db
 import:
     move: yes
 match:
-    ignored: unmatched_tracks 
+    ignored: unmatched_tracks
     ignored_media: ['Data CD', 'DVD', 'DVD-Video', 'Blu-ray', 'HD-DVD', 'VCD',
                     'SVCD', 'UMD', 'VHS']
     strong_rec_thresh: 0.10
