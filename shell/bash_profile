@@ -4,7 +4,7 @@ set -o vi
 # Use tmux by default on local connections
 if command -v tmux>/dev/null ; then
     if  [ ! "$SSH_CONNECTION" ]; then
-        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux
+        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux -u
     fi
 fi
 
@@ -72,6 +72,11 @@ if [ -f ~/bash_profile_fb.sh ]; then
     source ~/bash_profile_fb.sh
 fi
 #CHEF.NO.SOURCE
+
+# Make vim the default if it is installed
+if [ -x "$(command -v vim)" ]; then
+    alias vi=vim
+fi
 
 # PATH Updates
 export PATH="/usr/local/opt/llvm/bin:$PATH"

@@ -99,9 +99,6 @@ endtry
 """""""""""""""""""""""""""""""
 " => Configuration
 """""""""""""""""""""""""""""""
-" flake8 (Use by typing <F7>)
-let g:flake8_cmd = systemlist('which flake8')[0]
-
 " Syntastic (recommended settings)
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -254,8 +251,6 @@ endtry
 let g:gruvbox_contrast_dark="hard"
 " Gruvbox dark mode
 set background=dark
-" Set true color terminal
-set termguicolors
 
 " Set extra options when running in GUI mode
 if has("gui_running")
