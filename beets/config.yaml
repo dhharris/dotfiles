@@ -3,14 +3,11 @@ library: ~/Music/data/musiclibrary.db
 import:
     move: yes
 match:
-    ignored: unmatched_tracks 
+    ignored: missing_tracks
     ignored_media: ['Data CD', 'DVD', 'DVD-Video', 'Blu-ray', 'HD-DVD', 'VCD',
                     'SVCD', 'UMD', 'VHS']
     strong_rec_thresh: 0.10
 
-plugins: fetchart embedart ftintitle
+plugins: fetchart embedart
 embedart:
     compare_threshold: 90
-
-ftintitle:
-    drop: yes # Remove featured artists entirely instead of adding them to title
