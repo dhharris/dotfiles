@@ -167,6 +167,11 @@ else
     link $dotfiles/mpd/mpd.conf $mpd/mpd.conf
 fi
 
+# Make controlmaster directory used by ssh_config
+# FIXME: I think there is a better place to put this...
+mkdir -p $HOME/.ssh/controlmaster
+link $dotfiles/ssh/ssh_config $HOME/.ssh/config
+
 if (( counter == 0 )); then
     echo "Nothing to do"
 else
