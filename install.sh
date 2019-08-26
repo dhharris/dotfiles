@@ -102,8 +102,9 @@ fi
 
 # Install sshh if it is not there
 if [ ! -x $sshh ]; then
-    curl -fsSL https://raw.githubusercontent.com/yudai/sshh/master/sshh > $sshh
-    chmod a+x $sshh
+    echo "Installing sshh..."
+    git clone https://github.com/yudai/sshh.git $sshh
+    chmod a+x $sshh/sshh && ((counter++))
 fi
 
 if ! command_exists python; then
