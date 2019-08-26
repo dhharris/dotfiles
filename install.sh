@@ -67,8 +67,9 @@ install_hg_plugin() {
 
 ##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
-dotfiles=$HOME/dotfiles
+dotfiles=$(dirname "$0")
 mpd=$HOME/.config/mpd
+sshh=$HOME/.sshh
 counter=0
 
 ##### Dependencies #####
@@ -97,6 +98,12 @@ fi
 if ! command_exists tmux; then
     echo "Installing tmux..."
     brew_install_or_nag tmux
+fi
+
+# Install sshh if it is not there
+if [ ! -x $sshh ]; then
+    curl -fsSL https://raw.githubusercontent.com/yudai/sshh/master/sshh > $sshh
+    chmod a+x $sshh
 fi
 
 if ! command_exists python; then
