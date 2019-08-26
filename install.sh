@@ -34,7 +34,7 @@ link() {
         mkdir -p "$(dirname $2)"
         ln -sf $1 $2 2>/dev/null
         echo "$2 is successfully linked."
-        ((counter++))
+        ((link_counter++))
     fi
 }
 
@@ -44,7 +44,7 @@ brew_install_or_nag() {
     else
         brew update
         brew install "$1"
-        ((counter++))
+        ((deps_counter++))
     fi
 }
 
@@ -53,7 +53,7 @@ git_clone_or_pull() {
     if [ ! -d $2 ]; then
         echo "Installing $1..."
         git clone $1 $2
-        ((counter++))
+        ((deps_counter++))
     else
         git -C $2 pull $1
     fi
@@ -71,7 +71,7 @@ install_hg_plugin() {
         cd $HOME/.hgext || return
         echo "Installing $plugin_name..."
         hg clone $1
-        ((counter++))
+        ((deps_counter++))
     fi
 
 }
@@ -82,7 +82,7 @@ dotfiles=$(dirname "$0")
 mpd=$HOME/.config/mpd
 sshh=$HOME/.sshh
 vundle=$HOME/.vim/bundle/Vundle.vim
-counter=0
+deps_counter=0
 
 ##### Dependencies #####
 ## MacOS Specific ##
@@ -91,13 +91,13 @@ counter=0
 if uname | grep -q Darwin; then
     if ! command_exists brew; then 
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        ((counter++)) 
+        ((deps_counter++)) 
     fi
 
     if ! command_exists reattach-to-user-namespace; then
         brew update
         brew install reattach-to-user-namespace
-        ((counter++))
+        ((deps_counter++))
     fi
 fi
 
@@ -115,7 +115,7 @@ fi
 if [ ! -x $sshh/sshh ]; then
     echo "Installing sshh..."
     git_clone_or_pull https://github.com/yudai/sshh.git $sshh
-    chmod a+x $sshh/sshh && ((counter++))
+    chmod a+x $sshh/sshh
 fi
 
 if ! command_exists python; then
@@ -140,15 +140,9 @@ if command_exists hg; then
     install_hg_plugin https://bitbucket.org/durin42/hg-git
 fi
 
-if (( counter == 0 )); then
-    echo "No dependencies to install"
-else
-    echo "Installed $counter dependencies"
-fi
-
 ##### Install symlinks #####
 echo "Linking dotfiles..."
-counter=0
+link_counter=0
 link $dotfiles/shell/bash_profile $HOME/.bash_profile
 link $dotfiles/shell/bashrc $HOME/.bashrc
 link $dotfiles/shell/inputrc $HOME/.inputrc
@@ -181,17 +175,24 @@ mkdir -p $HOME/.ssh/controlmaster
 link $dotfiles/ssh/ssh_config $HOME/.ssh/config
 
 # Install or update Vundle Plugins
+# Must be done *after* vimrc is linked
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle plugins..."
     vim --not-a-term +PluginInstall +qall > /dev/null
-    ((counter++))
+    ((deps_counter++))
 else
     echo "Updating Vundle plugins..."
     vim --not-a-term +PluginUpdate +qall > /dev/null
 fi
 
-if (( counter == 0 )); then
-    echo "Nothing to do"
+if (( link_counter == 0 )); then
+    echo "Nothing to link"
 else
-    echo "Linked $counter file(s)"
+    echo "Linked $link_counter file(s)"
+fi
+
+if (( deps_counter == 0 )); then
+    echo "No dependencies to install"
+else
+    echo "Installed $deps_counter dependencies"
 fi
