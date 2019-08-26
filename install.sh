@@ -48,6 +48,17 @@ brew_install_or_nag() {
     fi
 }
 
+git_clone_or_pull() {
+    # @params repo, dir_name
+    if [ ! -d $2 ]; then
+        echo "Installing $1..."
+        git clone $1 $2
+        ((counter++))
+    else
+        git -C $2 pull $1
+    fi
+}
+
 install_hg_plugin() {
     if [[ $(hostname -s) = dev* ]]; then
         return
@@ -70,10 +81,10 @@ backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
 dotfiles=$(dirname "$0")
 mpd=$HOME/.config/mpd
 sshh=$HOME/.sshh
+vundle=$HOME/.vim/bundle/Vundle.vim
 counter=0
 
 ##### Dependencies #####
-
 ## MacOS Specific ##
 
 # Check if homebrew is installed, and update
@@ -90,20 +101,20 @@ if uname | grep -q Darwin; then
     fi
 fi
 
-# Check for ~/.config directory
-if [ ! -d $HOME/.config ]; then
-    mkdir $HOME/.config
-fi
+## All other deps ##
+
+# Clone or update git repo deps
+git_clone_or_pull https://github.com/VundleVim/Vundle.vim.git $vundle
+git_clone_or_pull https://github.com/yudai/sshh.git $sshh
 
 if ! command_exists tmux; then
     echo "Installing tmux..."
     brew_install_or_nag tmux
 fi
 
-# Install sshh if it is not there
-if [ ! -x $sshh ]; then
+if [ ! -x $sshh/sshh ]; then
     echo "Installing sshh..."
-    git clone https://github.com/yudai/sshh.git $sshh
+    git_clone_or_pull https://github.com/yudai/sshh.git $sshh
     chmod a+x $sshh/sshh && ((counter++))
 fi
 
@@ -121,18 +132,6 @@ fi
 if ! command_exists hg; then
     echo "Installing mercurial..."
     brew_install_or_nag mercurial
-fi
-
-# Must link vimrc before installing vim plugins
-link $dotfiles/vim/vimrc $HOME/.vimrc
-
-# Install Vundle & Plugins
-if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
-    echo "Installing Vundle..."
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    echo "Installing Vundle plugins..."
-    vim +PluginInstall +qall
-    ((counter++))
 fi
 
 # Install hg packages
@@ -168,6 +167,7 @@ link $dotfiles/vim/clang-format $HOME/.clang-format
 link $dotfiles/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
 
 link $dotfiles/beets/config.yaml $HOME/.config/beets/config.yaml
+link $dotfiles/vim/vimrc $HOME/.vimrc
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
@@ -179,6 +179,16 @@ fi
 # FIXME: I think there is a better place to put this...
 mkdir -p $HOME/.ssh/controlmaster
 link $dotfiles/ssh/ssh_config $HOME/.ssh/config
+
+# Install or update Vundle Plugins
+if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
+    echo "Installing Vundle plugins..."
+    vim --not-a-term +PluginInstall +qall > /dev/null
+    ((counter++))
+else
+    echo "Updating Vundle plugins..."
+    vim --not-a-term +PluginUpdate +qall > /dev/null
+fi
 
 if (( counter == 0 )); then
     echo "Nothing to do"
