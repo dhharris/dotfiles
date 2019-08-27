@@ -75,6 +75,8 @@ Plugin 'sjl/splice.vim'
 Plugin 'tpope/vim-surround'
 " Gruvbox colorscheme
 Plugin 'morhetz/gruvbox'
+" Asynchronous build and test dispatcher
+Plugin 'tpope/vim-dispatch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -97,9 +99,9 @@ catch
 endtry
 
 """""""""""""""""""""""""""""""
-" => Configuration
+" => Plugins Configuration
 """""""""""""""""""""""""""""""
-" Syntastic (recommended settings)
+" syntastic (recommended settings)
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -492,6 +494,11 @@ map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
+
+" display rendered markdown in the browser using SPACE+m
+if executable('grip')
+  nnoremap <buffer><space>m :Dispatch grip -b %<cr>
+endif
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
