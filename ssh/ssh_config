@@ -4,4 +4,4 @@ Host *
  IdentityFile ~/.ssh/id_rsa
  ControlMaster auto
  ControlPath ~/.ssh/controlmasters/%r@%h:%p
- ControlPersist 10m
+ ControlPersist 6h
