@@ -213,6 +213,9 @@ set smartcase
 " Highlight search results
 set hlsearch
 
+" Clear highlighting with ESC
+nnoremap <esc> :noh<return><esc>
+
 " Makes search act like search in modern browsers
 set incsearch 
 
