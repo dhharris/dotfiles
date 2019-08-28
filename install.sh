@@ -192,8 +192,13 @@ if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
     vim --not-a-term +PluginInstall +qall > /dev/null
     ((deps_counter++))
 else
-    echo "Updating Vundle plugins..."
-    vim --not-a-term +PluginUpdate +qall > /dev/null
+    last_updated=$(cat $vundle/.last.updated 2>/dev/null)
+    delta=$(($(date +%s) - ${last_updated:=0}))
+    if [[ $delta -ge 86400 ]]; then
+        echo "Updating Vundle plugins..."
+        vim --not-a-term +PluginUpdate +PluginClean +qall > /dev/null
+        date +%s > $vundle/.last.updated
+    fi
 fi
 
 if (( link_counter == 0 )); then
