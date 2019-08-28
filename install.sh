@@ -53,7 +53,6 @@ git_clone_or_pull() {
     if [ ! -d $2 ]; then
         echo "Installing $1..."
         git clone $1 $2
-        ((deps_counter++))
     else
         git -C $2 pull $1
     fi
@@ -117,6 +116,7 @@ fi
 if [ ! -x $sshh/sshh ]; then
     echo "Installing sshh..."
     chmod a+x $sshh/sshh
+    ((deps_counter++))
 fi
 
 # Make scripts executable
