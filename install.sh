@@ -81,6 +81,7 @@ backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
 dotfiles=$(dirname "$0")
 mpd=$HOME/.config/mpd
 sshh=$HOME/.sshh
+scripts=$HOME/scripts
 vundle=$HOME/.vim/bundle/Vundle.vim
 deps_counter=0
 
@@ -106,6 +107,7 @@ fi
 # Clone or update git repo deps
 git_clone_or_pull https://github.com/VundleVim/Vundle.vim.git $vundle
 git_clone_or_pull https://github.com/yudai/sshh.git $sshh
+git_clone_or_pull https://github.com/dhharris/scripts.git $scripts
 
 if ! command_exists tmux; then
     echo "Installing tmux..."
@@ -114,9 +116,18 @@ fi
 
 if [ ! -x $sshh/sshh ]; then
     echo "Installing sshh..."
-    git_clone_or_pull https://github.com/yudai/sshh.git $sshh
     chmod a+x $sshh/sshh
 fi
+
+# Make scripts executable
+for i in $scripts/*
+do
+    if [ ! -x $i ]; then
+        echo "Installing $i"
+        chmod a+x $i
+        ((deps_counter++))
+    fi
+done
 
 if ! command_exists python; then
     echo "Installing tmux..."
