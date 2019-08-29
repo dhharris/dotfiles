@@ -77,6 +77,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'morhetz/gruvbox'
 " Asynchronous build and test dispatcher
 Plugin 'tpope/vim-dispatch'
+" Make the yanked region apparent
+Plugin 'machakann/vim-highlightedyank'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
