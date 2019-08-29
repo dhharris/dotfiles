@@ -84,6 +84,9 @@ scripts=$HOME/scripts
 vundle=$HOME/.vim/bundle/Vundle.vim
 deps_counter=0
 
+##### Check for updates in remote #####
+git -C $dotfiles pull "https://github.com/dhharris/dotfiles.git"
+
 ##### Dependencies #####
 ## MacOS Specific ##
 
