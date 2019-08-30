@@ -92,7 +92,7 @@ git -C $dotfiles pull "https://github.com/dhharris/dotfiles.git"
 ##### Dependencies #####
 ## MacOS Specific ##
 
-if uname | grep -q Darwin; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     # Check if homebrew is installed, and update
     if ! command_exists brew; then 
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -106,7 +106,7 @@ if uname | grep -q Darwin; then
     fi
     # Install tridactyl native
     git_clone_or_pull https://github.com/tridactyl/tridactyl.git $tridactyl
-    bash $tridactyl/native/install.sh
+    bash $tridactyl/native/install.sh > /dev/null
     link $dotfiles/vim/tridactylrc $HOME/.tridactylrc
 fi
 
@@ -182,6 +182,7 @@ link $dotfiles/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
 link $dotfiles/beets/config.yaml $HOME/.config/beets/config.yaml
 link $dotfiles/vim/vimrc $HOME/.vimrc
 
+# mpd config is stored in different directories depending on the system
 if [[ "$OSTYPE" == "darwin"* ]]; then
     link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
 else
