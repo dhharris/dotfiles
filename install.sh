@@ -82,7 +82,9 @@ mpd=$HOME/.config/mpd
 sshh=$HOME/.sshh
 scripts=$HOME/scripts
 vundle=$HOME/.vim/bundle/Vundle.vim
+tridactyl=$HOME/.tridactyl
 deps_counter=0
+link_counter=0
 
 ##### Check for updates in remote #####
 git -C $dotfiles pull "https://github.com/dhharris/dotfiles.git"
@@ -90,8 +92,8 @@ git -C $dotfiles pull "https://github.com/dhharris/dotfiles.git"
 ##### Dependencies #####
 ## MacOS Specific ##
 
-# Check if homebrew is installed, and update
 if uname | grep -q Darwin; then
+    # Check if homebrew is installed, and update
     if ! command_exists brew; then 
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         ((deps_counter++)) 
@@ -102,6 +104,10 @@ if uname | grep -q Darwin; then
         brew install reattach-to-user-namespace
         ((deps_counter++))
     fi
+    # Install tridactyl native
+    git_clone_or_pull https://github.com/tridactyl/tridactyl.git $tridactyl
+    bash $tridactyl/native/install.sh
+    link $dotfiles/vim/tridactylrc $HOME/.tridactylrc
 fi
 
 ## All other deps ##
@@ -156,7 +162,6 @@ fi
 
 ##### Install symlinks #####
 echo "Linking dotfiles..."
-link_counter=0
 link $dotfiles/shell/bash_profile $HOME/.bash_profile
 link $dotfiles/shell/bashrc $HOME/.bashrc
 link $dotfiles/shell/inputrc $HOME/.inputrc
