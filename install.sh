@@ -7,14 +7,14 @@ command_exists () {
 }
 
 backup() {
-    if [ ! -d $backup_dir ]; then
+    if [ ! -d "$backup_dir" ]; then
         mkdir "$backup_dir"
         echo "Backup directory $backup_dir created."
     fi
 
-    if [ -f $1 ]; then
-        echo $1
-        mv $1 $backup_dir
+    if [ -f "$1" ]; then
+        echo "$1"
+        mv "$1" "$backup_dir"
         echo "$1 is backed up in $backup_dir"
     fi
 }
@@ -22,17 +22,17 @@ backup() {
 link() {
     if [[ -f $1 ]]; then
         if [[ -f $2 ]]; then
-            file1sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
-            file2sum=$(shasum -a 256 $1 | cut -d ' ' -f 1)
+            file1sum=$(shasum -a 256 "$1" | cut -d ' ' -f 1)
+            file2sum=$(shasum -a 256 "$1" | cut -d ' ' -f 1)
             if [ "x$file1sum" = "x$file2sum" ]; then
                 return
             else
-                backup $2
+                backup "$2"
             fi
         fi
         # Make the directory if it does not exist
-        mkdir -p "$(dirname $2)"
-        ln -sf $1 $2 2>/dev/null
+        mkdir -p "$(dirname "$2")"
+        ln -sf "$1" "$2" 2>/dev/null
         echo "$2 is successfully linked."
         ((link_counter++))
     fi
@@ -50,11 +50,11 @@ brew_install_or_nag() {
 
 git_clone_or_pull() {
     # @params repo, dir_name
-    if [ ! -d $2 ]; then
+    if [ ! -d "$2" ]; then
         echo "Installing $1..."
-        git clone $1 $2
+        git clone "$1" "$2"
     else
-        git -C $2 pull $1
+        git -C "$2" pull "$1"
     fi
 }
 
@@ -63,13 +63,13 @@ install_hg_plugin() {
         return
     fi
     if ! [[ -d $HOME/.hgext/ ]]; then
-        mkdir -p $HOME/.hgext
+        mkdir -p "$HOME"/.hgext
     fi
     plugin_name=$(echo "$1" | rev | cut -d '/' -f 1 | rev)
     if ! [[ -d $HOME/.hgext/$plugin_name ]]; then
-        cd $HOME/.hgext || return
+        cd "$HOME"/.hgext || return
         echo "Installing $plugin_name..."
-        hg clone $1
+        hg clone "$1"
         ((deps_counter++))
     fi
 
@@ -87,7 +87,7 @@ deps_counter=0
 link_counter=0
 
 ##### Check for updates in remote #####
-git -C $dotfiles pull "https://github.com/dhharris/dotfiles.git"
+git -C "$dotfiles" pull "https://github.com/dhharris/dotfiles.git"
 
 ##### Dependencies #####
 ## MacOS Specific ##
@@ -105,35 +105,35 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         ((deps_counter++))
     fi
     # Install tridactyl native
-    git_clone_or_pull https://github.com/tridactyl/tridactyl.git $tridactyl
-    bash $tridactyl/native/install.sh > /dev/null
-    link $dotfiles/vim/tridactylrc $HOME/.tridactylrc
+    git_clone_or_pull https://github.com/tridactyl/tridactyl.git "$tridactyl"
+    bash "$tridactyl"/native/install.sh > /dev/null
+    link "$dotfiles"/vim/tridactylrc "$HOME"/.tridactylrc
 fi
 
 ## All other deps ##
 
 # Clone or update git repo deps
-git_clone_or_pull https://github.com/VundleVim/Vundle.vim.git $vundle
-git_clone_or_pull https://github.com/yudai/sshh.git $sshh
-git_clone_or_pull https://github.com/dhharris/scripts.git $scripts
+git_clone_or_pull https://github.com/VundleVim/Vundle.vim.git "$vundle"
+git_clone_or_pull https://github.com/yudai/sshh.git "$sshh"
+git_clone_or_pull https://github.com/dhharris/scripts.git "$scripts"
 
 if ! command_exists tmux; then
     echo "Installing tmux..."
     brew_install_or_nag tmux
 fi
 
-if [ ! -x $sshh/sshh ]; then
+if [ ! -x "$sshh"/sshh ]; then
     echo "Installing sshh..."
-    chmod a+x $sshh/sshh
+    chmod a+x "$sshh"/sshh
     ((deps_counter++))
 fi
 
 # Make scripts executable
-for i in $scripts/*
+for i in "$scripts"/*
 do
-    if [ ! -x $i ]; then
+    if [ ! -x "$i" ]; then
         echo "Installing $i"
-        chmod a+x $i
+        chmod a+x "$i"
         ((deps_counter++))
     fi
 done
@@ -162,51 +162,51 @@ fi
 
 ##### Install symlinks #####
 echo "Linking dotfiles..."
-link $dotfiles/shell/bash_profile $HOME/.bash_profile
-link $dotfiles/shell/bashrc $HOME/.bashrc
-link $dotfiles/shell/inputrc $HOME/.inputrc
+link "$dotfiles"/shell/bash_profile "$HOME"/.bash_profile
+link "$dotfiles"/shell/bashrc "$HOME"/.bashrc
+link "$dotfiles"/shell/inputrc "$HOME"/.inputrc
 
-link $dotfiles/git/gitconfig $HOME/.gitconfig
-link $dotfiles/hg/hgrc $HOME/.hgrc
+link "$dotfiles"/git/gitconfig "$HOME"/.gitconfig
+link "$dotfiles"/hg/hgrc "$HOME"/.hgrc
 
-link $dotfiles/mysql/myclirc $HOME/.myclirc
+link "$dotfiles"/mysql/myclirc "$HOME"/.myclirc
 
-link $dotfiles/py/flake8 $HOME/.config/flake8
+link "$dotfiles"/py/flake8 "$HOME"/.config/flake8
 
-link $dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+link "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
 
-link $dotfiles/vim/clang-format $HOME/.clang-format
+link "$dotfiles"/vim/clang-format "$HOME"/.clang-format
 
-link $dotfiles/gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+link "$dotfiles"/gnupg/gpg-agent.conf "$HOME"/.gnupg/gpg-agent.conf
 
-link $dotfiles/beets/config.yaml $HOME/.config/beets/config.yaml
-link $dotfiles/vim/vimrc $HOME/.vimrc
+link "$dotfiles"/beets/config.yaml "$HOME"/.config/beets/config.yaml
+link "$dotfiles"/vim/vimrc "$HOME"/.vimrc
 
 # mpd config is stored in different directories depending on the system
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    link $dotfiles/mpd/mpd.conf $HOME/.mpdconf
+    link "$dotfiles"/mpd/mpd.conf "$HOME"/.mpdconf
 else
-    link $dotfiles/mpd/mpd.conf $mpd/mpd.conf
+    link "$dotfiles"/mpd/mpd.conf "$mpd"/mpd.conf
 fi
 
 # Make controlmaster directory used by ssh_config
 # FIXME: I think there is a better place to put this...
-mkdir -p $HOME/.ssh/controlmaster
-link $dotfiles/ssh/ssh_config $HOME/.ssh/config
+mkdir -p "$HOME"/.ssh/controlmaster
+link "$dotfiles"/ssh/ssh_config "$HOME"/.ssh/config
 
 # Install or update Vundle Plugins
 # Must be done *after* vimrc is linked
-if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
+if [ ! -d "$HOME"/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle plugins..."
     vim --not-a-term +PluginInstall +qall > /dev/null
     ((deps_counter++))
 else
-    last_updated=$(cat $vundle/.last.updated 2>/dev/null)
+    last_updated=$(cat "$vundle"/.last.updated 2>/dev/null)
     delta=$(($(date +%s) - ${last_updated:=0}))
     if [[ $delta -ge 86400 ]]; then
         echo "Updating Vundle plugins..."
         vim --not-a-term +PluginUpdate +PluginClean +qall > /dev/null
-        date +%s > $vundle/.last.updated
+        date +%s > "$vundle"/.last.updated
     fi
 fi
 
