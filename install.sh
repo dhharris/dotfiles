@@ -77,7 +77,7 @@ install_hg_plugin() {
 
 ##### Set helper vars #####
 backup_dir="/tmp/dotfiles_$(date +%Y%m%d)"
-dotfiles=$(dirname "$0")
+dotfiles="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mpd=$HOME/.config/mpd
 sshh=$HOME/.sshh
 scripts=$HOME/scripts
