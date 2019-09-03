@@ -40,6 +40,13 @@ command hint_focus hint -;
 bind ;C composite hint_focus; !s xdotool key Menu
 
 "
+" Ignore tridactyl input on these sites.
+" Can be turned back on using :mode normal
+"
+autocmd DocStart facebook.com/intern/am mode ignore
+autocmd DocStart studieskolen.danishtogo.dk mode ignore
+
+"
 " Misc settings
 "
 
