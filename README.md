@@ -1,8 +1,8 @@
 # dotfiles
 
-## Installation instructions
+## Installation 
 
 ```bash
-git clone https://github.com/dhharris/dotfiles.git ~
-~/dotfiles/install.sh
+git clone https://github.com/dhharris/dotfiles.git $HOME
+$HOME/dotfiles/install.sh
 ```
