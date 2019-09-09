@@ -300,7 +300,7 @@ func! DeleteTrailingWS()
 endfunc
 
 " Set up to work for certain filetypes
-autocmd BufWritePre * if count(['c', 'cpp', 'markdown', 'python'],&filetype)
+autocmd BufWritePre * if count(['c', 'cpp', 'markdown', 'python', 'vim'],&filetype)
             \ | call DeleteTrailingWS()
             \ | endif
 
