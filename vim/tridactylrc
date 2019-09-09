@@ -61,8 +61,12 @@ autocmd DocStart studieskolen.danishtogo.dk mode ignore
 "
 set searchurls.g https://www.google.com/search?q=%s
 set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
-set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
 set searchurls.archive https://archive.org/search.php?query=%s
+
+" Library Genesis (for textbooks, etc)
+set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
+" Python documentation
+set searchurls.py https://docs.python.org/3/search.html?q=%s
 
 "
 " Misc settings
