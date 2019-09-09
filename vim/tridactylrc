@@ -39,12 +39,30 @@ command hint_focus hint -;
 " Open right click menu on links
 bind ;C composite hint_focus; !s xdotool key Menu
 
+" vim-like find behavior
+bind / fillcmdline find
+bind n findnext 1
+bind N findnext -1
+bind <space> nohlsearch
+
+" Open current page in the wayback machine
+command wayback composite get_current_url | tabopen https://web.archive.org/web/*/
+
+
 "
 " Ignore tridactyl input on these sites.
 " Can be turned back on using :mode normal
 "
 autocmd DocStart facebook.com/intern/am mode ignore
 autocmd DocStart studieskolen.danishtogo.dk mode ignore
+
+"
+" Custom Search Engines
+"
+set searchurls.g https://www.google.com/search?q=%s
+set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
+set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
+set searchurls.archive https://archive.org/search.php?query=%s
 
 "
 " Misc settings
@@ -62,6 +80,11 @@ set hintnames numeric
 
 " Defaults to 300ms but I'm a 'move fast and close the wrong tabs' kinda chap
 set hintdelay 100
+
+" Disallow new tabs from stealing focus. Breaks JS editors like coderpad.
+" See tridactyl FAQ
+set allowautofocus false
+seturl coderpad.io allowautofocus true
 
 "
 " URL redirects
