@@ -45,6 +45,14 @@ bind n findnext 1
 bind N findnext -1
 bind <space> nohlsearch
 
+" Use capitalized left/right keys to move through tabs
+bind H tp
+bind L tn
+
+" Capitalized up/down keys to move back/forward through history
+bind J back
+bind K forward
+
 " Open current page in the wayback machine
 command wayback composite get_current_url | tabopen https://web.archive.org/web/*/
 
