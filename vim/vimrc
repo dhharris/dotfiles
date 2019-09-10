@@ -10,7 +10,7 @@
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Files and backups
-"    -> Text, tab, indent and lines 
+"    -> Text, tab, indent and lines
 "    -> Visual mode
 "    -> Moving around, tabs and buffers
 "    -> Status line
@@ -108,7 +108,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wextra' 
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wextra'
 let g:syntastic_cpp_remove_include_errors = 1
 
 let g:syntastic_python_checkers = ['flake8']
@@ -149,7 +149,7 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
@@ -174,7 +174,7 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -209,7 +209,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -219,10 +219,10 @@ set hlsearch
 nnoremap <esc><esc> :noh<return><esc>
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
@@ -232,7 +232,7 @@ nnoremap / /\v
 vnoremap / /\v
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -248,6 +248,18 @@ set foldcolumn=1
 " Enable the mouse for systems that have a GUI
 set mouse=a
 
+" Mode Settings
+"  Cursor Settings
+"   1 -> blinking block
+"   2 -> solid block
+"   3 -> blinking underscore
+"   4 -> solid underscore
+"   5 -> blinking vertical bar
+"   6 -> solid vertical bar
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\" "INSERT mode
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\" "REPLACE mode
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" "ELSE
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -255,7 +267,7 @@ set mouse=a
 syntax enable
 
 try
-    colorscheme gruvbox 
+    colorscheme gruvbox
 catch
 endtry
 
@@ -305,7 +317,7 @@ autocmd BufWritePre * if count(['c', 'cpp', 'markdown', 'python', 'ruby', 'vim']
             \ | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab, indent and lines 
+" => Text, tab, indent and lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
@@ -317,7 +329,7 @@ set smarttab
 " => 8 spaces for C programs
 
 " Number of spaces for auto indent
-set shiftwidth=4 
+set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
@@ -339,11 +351,11 @@ autocmd FileType python match OverLength /\%89v.\+/
 set lbr
 set tw=500
 
-set autoindent 
-set wrap 
+set autoindent
+set wrap
 
 """"""""""""""""""""""""""""""
-" => Visual mode 
+" => Visual mode
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
@@ -384,8 +396,8 @@ map <leader>h :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -400,7 +412,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
     set switchbuf=useopen,usetab,newtab
     set stal=2
@@ -452,7 +464,7 @@ endif
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ag and put the cursor in the right position
-map <leader>g :Ag 
+map <leader>g :Ag
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
@@ -522,7 +534,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
