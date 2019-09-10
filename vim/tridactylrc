@@ -56,6 +56,8 @@ bind K forward
 " Open current page in the wayback machine
 command wayback composite get_current_url | tabopen https://web.archive.org/web/*/
 
+" Shortcut to FB
+command fb open https://www.facebook.com/
 
 "
 " Ignore tridactyl input on these sites.
