@@ -70,12 +70,6 @@ if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; t
     source ~/dotfiles/shell/bash_profile_macos
 fi
     
-# FB Specific Configs
-if [ -f ~/bash_profile_fb.sh ]; then
-    source ~/bash_profile_fb.sh
-fi
-#CHEF.NO.SOURCE
-
 # Make vim the default if it is installed
 if [ -x "$(command -v vim)" ]; then
     alias vi=vim
