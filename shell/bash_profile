@@ -69,6 +69,10 @@ export GREP_OPTIONS='--color=auto'
 if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; then
     source ~/dotfiles/shell/bash_profile_macos
 fi
+
+if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
+    source $HOME/dotfiles/tmux/completion.sh
+fi
     
 # FB Specific Configs
 if [ -f ~/bash_profile_fb.sh ]; then
