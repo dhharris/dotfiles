@@ -21,9 +21,3 @@ if [ -d "${HOME}/.gnupg" ]; then
     export GPG_AGENT_INFO
     export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 fi
-
-# FB Specific Config
-if [ -f ~/bash_profile_fb.sh ]; then
-    source ~/bash_profile_fb.sh
-fi
-#CHEF.NO.SOURCE
