@@ -101,6 +101,7 @@ set allowautofocus false
 seturl coderpad.io allowautofocus true
 seturl facebook.com allowautofocus true
 seturl workplace.com allowautofocus true
+seturl regex101.com allowautofocus true
 
 "
 " URL redirects
