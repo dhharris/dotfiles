@@ -1,11 +1,3 @@
 if [ -f $HOME/.bash_profile ]; then
     source $HOME/.bash_profile
 fi
-
-if [ -f /usr/facebook/ops/rc/master.bashrc ]; then
-    source /usr/facebook/ops/rc/master.bashrc
-fi
-
-if [ -f $HOME/fbsource/fbcode/servicefoundry/tools/sf_bash_environment ]; then
-    source $HOME/fbsource/fbcode/servicefoundry/tools/sf_bash_environment
-fi
