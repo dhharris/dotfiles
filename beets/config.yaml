@@ -8,7 +8,7 @@ match:
                     'SVCD', 'UMD', 'VHS']
     strong_rec_thresh: 0.10
 
-plugins: fetchart embedart ftintitle
+plugins: fetchart embedart ftintitle the
 embedart:
     compare_threshold: 90
 
