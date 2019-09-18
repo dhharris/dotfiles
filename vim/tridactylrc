@@ -72,6 +72,7 @@ autocmd DocStart studieskolen.danishtogo.dk mode ignore
 set searchurls.g https://www.google.com/search?q=%s
 set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
 set searchurls.archive https://archive.org/search.php?query=%s
+set searchurls.mb https://musicbrainz.org/search?query=%s&type=release&method=indexed
 
 " Library Genesis (for textbooks, etc)
 set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
