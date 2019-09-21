@@ -61,10 +61,10 @@ command fb open https://www.facebook.com/
 
 "
 " Ignore tridactyl input on these sites.
-" Can be turned back on using :mode normal
+" See :help blacklistadd
 "
-autocmd DocStart facebook.com/intern/am mode ignore
-autocmd DocStart studieskolen.danishtogo.dk mode ignore
+blacklistadd facebook.com/intern/am
+blacklistadd studieskolen.danishtogo.dk
 
 "
 " Custom Search Engines
