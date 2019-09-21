@@ -53,8 +53,8 @@ bind L tn
 bind J back
 bind K forward
 
-" Open current page in the wayback machine
-command wayback composite get_current_url | tabopen https://web.archive.org/web/*/
+" Search for current page in the wayback machine
+command wayback composite get_current_url | tabopen wb
 
 " Shortcut to FB
 command fb open https://www.facebook.com/
@@ -73,6 +73,7 @@ set searchurls.g https://www.google.com/search?q=%s
 set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
 set searchurls.archive https://archive.org/search.php?query=%s
 set searchurls.mb https://musicbrainz.org/search?query=%s&type=release&method=indexed
+set searchurls.wb https://web.archive.org/web/*/%s
 
 " Library Genesis (for textbooks, etc)
 set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
