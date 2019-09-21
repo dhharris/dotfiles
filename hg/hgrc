@@ -8,6 +8,7 @@ purge =
 rebase =
 strip =
 amend =
+split =
 
 # Hg-git extensions: `hg clone https://bitbucket.org/durin42/hg-git`
 hggit = ~/.hgext/hg-git/hggit
