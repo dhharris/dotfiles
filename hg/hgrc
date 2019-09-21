@@ -13,6 +13,12 @@ split =
 # Hg-git extensions: `hg clone https://bitbucket.org/durin42/hg-git`
 hggit = ~/.hgext/hg-git/hggit
 
+[alias]
+what = id -r . -T "{shortest(node, 6)}\t{desc}\n"
+prev = !$HG co .~1 && echo "Working copy is now at $($HG what)"
+next = !$HG co .~-1 && echo "Working copy is now at $($HG what)"
+log = log -G
+
 [ui]
 # Merge by manually editing the files
 merge = internal:merge3 
