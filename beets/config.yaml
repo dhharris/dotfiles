@@ -9,6 +9,10 @@ match:
     strong_rec_thresh: 0.10
 
 plugins: fetchart embedart ftintitle the
+paths:
+    default: %the{$albumartist}/$album/$track $title
+fetchart:
+    sources: itunes * # Prioritize itunes over others
 embedart:
     compare_threshold: 90
 
