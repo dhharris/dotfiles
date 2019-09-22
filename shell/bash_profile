@@ -55,8 +55,9 @@ export LESS='-XRF'
 # Set default C compiler (Clang if available)
 command -v clang >/dev/null 2>&1 && export CC=clang
 
-# Change bash prompt
-export PS1="[\u@\h \w]\\$ \[$(tput sgr0)\]"
+# Change bash PS1 prompt
+# See http://bashrcgenerator.com/
+export PS1="[\u@\h \W]\\$ \[$(tput sgr0)\]"
 
 # Improve ls with colors, etc
 export CLICOLOR=1
