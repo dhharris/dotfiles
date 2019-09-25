@@ -33,6 +33,11 @@ bind gD composite tabduplicate | tabdetach
 " Make yy use canonical / short links on the 5 websites that support them
 bind yy clipboard yankshort
 
+command youfuckedup js document.title = "You fucked up"; const urlParams = new URLSearchParams(window.location.search); var query = urlParams.get('q'); var queryshame = query ? "You almost sent the query '" + query + "' to El Googlerino" : "You just wanted to see the cat didn't you? That's okay. It's been logged though"; var querypride = query ? "<h2><a href='https://www.google.com/search?q=" + query + "'>Fuck You, I Meant To Do That</a></h2>" : "<h2><a href='https://www.google.com/search?q=cat+gifs&tbm=isch'>I Want More</a></h2>"; document.body.innerHTML = "<h1>G is for Google</h1><br><h2>" + queryshame + "</h2><img src='https://lakitu.thecubic.net/cat.gif' alt='clownkitty' /><br />" + querypride;
+
+" TODO: Make google page remix for this^
+" \ document.getElementById("hplogo").src = "logo3w.png";
+
 " Stupid workaround to let hint -; be used with composite which steals semi-colons
 command hint_focus hint -;
 
@@ -89,7 +94,6 @@ js tri.browserBg.runtime.getPlatformInfo().then(os=>{const editorcmd = os.os=="l
 
 " set profile dir on Windows
 jsb browser.runtime.getPlatformInfo().then(os=>{const profiledir = os.os=="win" ? "C:\\Users\\olie\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\gwm76nmk.default" : "auto"; tri.config.set("profiledir", profiledir)})
-
 " Sane hinting mode
 set hintfiltermode vimperator-reflow
 set hintnames numeric
@@ -115,6 +119,8 @@ autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www",
 autocmd DocStart ^http(s?)://www.amazon.com js tri.excmds.urlmodify("-t", "www", "smile")
 " Don't use fandom RS wiki
 autocmd DocStart ^http(s?)://oldschoolrunescape.fandom.com js tri.excmds.urlmodify("-t", "oldschoolrunescape.fandom.com", "oldschool.runescape.wiki")
+" Duck Duck Go sucks
+autocmd DocLoad duckduckgo youfuckedup
 
 " This will have to do until someone writes us a nice syntax file :)
 " vim: set filetype=vim:
