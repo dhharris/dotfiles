@@ -302,6 +302,11 @@ autocmd BufEnter *.cinc :setlocal filetype=python
 autocmd BufEnter *.tw :setlocal filetype=python
 autocmd BufEnter TARGETS :setlocal filetype=json
 
+" I use .local files in configs only
+autocmd BufEnter *.local :setlocal filetype=cfg
+" Any file that ends with config
+autocmd BufEnter *config :setlocal filetype=cfg
+
 " Anything that contains bash in the filename is associated with bash
 autocmd BufEnter *bash* :setlocal filetype=sh
 
@@ -313,7 +318,7 @@ func! DeleteTrailingWS()
 endfunc
 
 " Set up to work for certain filetypes
-autocmd BufWritePre * if count(['c', 'cpp', 'markdown', 'python', 'ruby', 'vim'],&filetype)
+autocmd BufWritePre * if count(['c', 'cfg', 'cpp', 'markdown', 'python', 'ruby', 'vim'],&filetype)
             \ | call DeleteTrailingWS()
             \ | endif
 
