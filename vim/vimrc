@@ -266,15 +266,15 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" "ELSE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
+set termguicolors
+set background=dark
+let g:gruvbox_contrast_dark="hard"
 
 try
     colorscheme gruvbox
 catch
+    colorscheme desert
 endtry
-
-let g:gruvbox_contrast_dark="hard"
-" Gruvbox dark mode
-set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
