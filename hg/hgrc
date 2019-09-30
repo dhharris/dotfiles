@@ -8,7 +8,6 @@ purge =
 rebase =
 strip =
 amend =
-split =
 
 # Hg-git extensions: `hg clone https://bitbucket.org/durin42/hg-git`
 hggit = ~/.hgext/hg-git/hggit
@@ -21,5 +20,7 @@ log = log -G
 
 [ui]
 # Merge by manually editing the files
-merge = internal:merge3 
+merge = internal:merge3
 username = Hugh Harris <dhharris9@gmail.com>
+
+%include ~/.hgrc.local
