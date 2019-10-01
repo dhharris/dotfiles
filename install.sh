@@ -20,6 +20,7 @@ backup() {
 }
 
 link() {
+    # @params src, dst
     if [[ -f $1 ]]; then
         if [[ -f $2 ]]; then
             file1sum=$(shasum -a 256 "$1" | cut -d ' ' -f 1)
@@ -39,6 +40,7 @@ link() {
 }
 
 brew_install_or_nag() {
+    # @params pkg
     if ! command_exists brew; then
         echo "Homebrew not detected. Please install $1 manually."
     else
@@ -48,13 +50,15 @@ brew_install_or_nag() {
     fi
 }
 
-git_clone_or_pull() {
+clone_or_pull() {
     # @params repo, dir_name
     if [ ! -d "$2" ]; then
         echo "Installing $1..."
         git clone "$1" "$2"
-    else
+    elif [ -d "$2/.git" ]; then
         git -C "$2" pull "$1"
+    elif [ -d "$2/.hg" ]; then
+        hg pull --cwd "$2" -u
     fi
 }
 
@@ -87,7 +91,7 @@ deps_counter=0
 link_counter=0
 
 ##### Check for updates in remote #####
-git -C "$dotfiles" pull "https://github.com/dhharris/dotfiles.git"
+clone_or_pull https://github.com/dhharris/dotfiles.git "$dotfiles"
 
 ##### Dependencies #####
 ## MacOS Specific ##
@@ -105,7 +109,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         ((deps_counter++))
     fi
     # Install tridactyl native
-    git_clone_or_pull https://github.com/tridactyl/tridactyl.git "$tridactyl"
+    clone_or_pull https://github.com/tridactyl/tridactyl.git "$tridactyl"
     bash "$tridactyl"/native/install.sh > /dev/null
     link "$dotfiles"/vim/tridactylrc "$HOME"/.tridactylrc
 fi
@@ -113,9 +117,9 @@ fi
 ## All other deps ##
 
 # Clone or update git repo deps
-git_clone_or_pull https://github.com/VundleVim/Vundle.vim.git "$vundle"
-git_clone_or_pull https://github.com/yudai/sshh.git "$sshh"
-git_clone_or_pull https://github.com/dhharris/scripts.git "$scripts"
+clone_or_pull https://github.com/VundleVim/Vundle.vim.git "$vundle"
+clone_or_pull https://github.com/yudai/sshh.git "$sshh"
+clone_or_pull https://github.com/dhharris/scripts.git "$scripts"
 
 if ! command_exists tmux; then
     echo "Installing tmux..."
