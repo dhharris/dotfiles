@@ -100,3 +100,17 @@ export COWPATH="$COWPATH:$HOME/.cowsay"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# Helper functions
+confirm() {
+    # @param [prompt]
+    read -r -p "${1:-Are you sure? [y/N]} " response
+    case "$response" in
+        [yY][eE][sS]|[yY])
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
