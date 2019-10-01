@@ -9,7 +9,7 @@ rebase =
 strip =
 amend =
 
-# Hg-git extensions: `hg clone https://bitbucket.org/durin42/hg-git`
+# Hg-git extension: `hg clone https://bitbucket.org/durin42/hg-git`
 hggit = ~/.hgext/hg-git/hggit
 
 [alias]
