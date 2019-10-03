@@ -111,7 +111,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Install tridactyl native
     clone_or_pull https://github.com/tridactyl/tridactyl.git "$tridactyl"
     bash "$tridactyl"/native/install.sh > /dev/null
-    link "$dotfiles"/vim/tridactylrc "$HOME"/.tridactylrc
+    link "$dotfiles"/firefox/tridactylrc "$HOME"/.tridactylrc
 fi
 
 ## All other deps ##
