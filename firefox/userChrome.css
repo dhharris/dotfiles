@@ -3,16 +3,21 @@
  * in Firefox >= v69
  */
 
-/* Statuspanel
+/* Customizations for the statuspanel, i.e.
  * the tooltip that appears when you hover over a link, etc
+ * This mainly just changes the location from the bottom left
+ * to the bottom right in order to avoid covering tridactyl
+ * commands being typed.
  */
 #statuspanel #statuspanel-label {
-    -moz-appearance: none !important;
+    /* See https://developer.mozilla.org/en-US/docs/Web/CSS/appearance */
+    -moz-appearance: toolbarbutton !important;
     background-color: white !important;
-    font-family: monospace !important;
+    font-family: inherit !important;
     font-size-adjust: inherit !important; /* size font by default */
     font-weight: thin !important;
     color: black !important;
+    opacity: 0.9 !important;
     border: 1px solid black !important;
 }
 
