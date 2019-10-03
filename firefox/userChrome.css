@@ -1,6 +1,16 @@
-/* Contains custom rules to change Firefox behavior. Must set  
- * toolkit.legacyUserProfileCustomizations.stylesheets = true
- * in Firefox >= v69
+/* 
+ * Contains custom rules to change Firefox behavior.  
+ *
+ * ### Installation ###
+ * 1. (in Firefox) locate the directory of your profile `about:profiles`
+ * 2. Make a new directory $PROFILE_DIR/chrome
+ * 3. Symlink this file to the new directory
+ * 4. In Firefox >= v69, must set  
+ *    `toolkit.legacyUserProfileCustomizations.stylesheets` = `true`
+ *    in about:config
+ * 5. Restart Firefox for changes to take effect
+ *
+ * Thanks to /r/FirefoxCSS for constributing to these rules
  */
 
 /* Customizations for the statuspanel, i.e.
