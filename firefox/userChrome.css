@@ -1,0 +1,60 @@
+/* Contains custom rules to change Firefox behavior. Must set  
+ * toolkit.legacyUserProfileCustomizations.stylesheets = true
+ * in Firefox >= v69
+ */
+
+/* Statuspanel
+ * the tooltip that appears when you hover over a link, etc
+ */
+#statuspanel #statuspanel-label {
+    -moz-appearance: none !important;
+    background-color: white !important;
+    font-family: monospace !important;
+    font-size-adjust: inherit !important; /* size font by default */
+    font-weight: thin !important;
+    color: black !important;
+    border: 1px solid black !important;
+}
+
+#statuspanel {
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    bottom: 20px !important;
+    height: 20px !important;
+    max-width: 45% !important;
+    transition: none !important;
+}
+
+/* If you're not on the latest Nightly,
+    change the #statuspanel-inner to .statuspanel-inner
+*/
+
+statuspanel #statuspanel-inner {
+    background: transparent !important;
+    border: none !important;
+    height: 20px !important;
+}
+
+/* If you're not on the latest Nightly,
+    change the #statuspanel-label to .statuspanel-label
+*/
+
+statuspanel #statuspanel-label {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Give address bar a black background in private browsing window */
+#main-window[privatebrowsingmode="temporary"] #urlbar {
+  background: black !important;
+  color: white !important;
+}
+
+/* Prevent tab overflow without making them hard to click */
+.tabbrowser-tab {
+  min-width: 1em !important;
+  clip-width: 1em !important;
+}
