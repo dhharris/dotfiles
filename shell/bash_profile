@@ -135,4 +135,4 @@ to_abs_path() {
 }
 
 # Join array with delimeter
-join() { local IFS="$1"; shift; echo "$*"; }
+join_with_delim() { local IFS="$1"; shift; echo "$*"; }
