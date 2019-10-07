@@ -133,6 +133,3 @@ to_abs_path() {
         echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
     fi
 }
-
-# Join array with delimeter
-join_with_delim() { local IFS="$1"; shift; echo "$*"; }
