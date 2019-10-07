@@ -33,11 +33,10 @@
 
 #statuspanel {
     position: fixed !important;
-    bottom: 0 !important;
+    bottom: 15px !important;
     right: 0 !important;
     background-color: transparent !important;
     border: none !important;
-    bottom: 20px !important;
     height: 20px !important;
     max-width: 45% !important;
     transition: none !important;
