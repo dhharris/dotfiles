@@ -78,6 +78,7 @@ set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
 set searchurls.archive https://archive.org/search.php?query=%s
 set searchurls.mb https://musicbrainz.org/search?query=%s&type=release&method=indexed
 set searchurls.wb https://web.archive.org/web/*/%s
+set searchurls.chef https://docs.chef.io/search.html#stq=%s
 
 " Library Genesis (for textbooks, etc)
 set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
