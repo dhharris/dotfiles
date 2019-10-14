@@ -79,6 +79,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-dispatch'
 " Make the yanked region apparent
 Plugin 'machakann/vim-highlightedyank'
+" YCM auto completion engine
+Plugin 'ycm-core/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
