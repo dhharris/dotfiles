@@ -184,6 +184,7 @@ link "$dotfiles"/vim/clang-format "$HOME"/.clang-format
 link "$dotfiles"/gnupg/gpg-agent.conf "$HOME"/.gnupg/gpg-agent.conf
 
 link "$dotfiles"/beets/config.yaml "$HOME"/.config/beets/config.yaml
+link "$dotfiles"/keyboard/karabiner.json "$HOME"/.config/karabiner/karabiner.json
 link "$dotfiles"/vim/vimrc "$HOME"/.vimrc
 
 # mpd config is stored in different directories depending on the system
