@@ -112,6 +112,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     clone_or_pull https://github.com/tridactyl/tridactyl.git "$tridactyl"
     bash "$tridactyl"/native/install.sh > /dev/null
     link "$dotfiles"/firefox/tridactylrc "$HOME"/.tridactylrc
+    link "$dotfiles"/keyboard/karabiner.json "$HOME"/.config/karabiner/karabiner.json
 fi
 
 ## All other deps ##
@@ -184,7 +185,6 @@ link "$dotfiles"/vim/clang-format "$HOME"/.clang-format
 link "$dotfiles"/gnupg/gpg-agent.conf "$HOME"/.gnupg/gpg-agent.conf
 
 link "$dotfiles"/beets/config.yaml "$HOME"/.config/beets/config.yaml
-link "$dotfiles"/keyboard/karabiner.json "$HOME"/.config/karabiner/karabiner.json
 link "$dotfiles"/vim/vimrc "$HOME"/.vimrc
 
 # mpd config is stored in different directories depending on the system
