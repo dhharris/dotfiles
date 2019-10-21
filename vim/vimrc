@@ -356,9 +356,7 @@ match OverLength /\%81v.\+/
 autocmd FileType python match OverLength /\%89v.\+/
 
 " Use spellcheck in markdown and text files
-autocmd FileType markdown setlocal spell
-autocmd FileType text setlocal spell
-
+autocmd FileType markdown,text setlocal spell spelllang=en_us
 
 " Linebreak on 500 characters
 set lbr
