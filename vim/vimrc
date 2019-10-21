@@ -355,6 +355,10 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 autocmd FileType python match OverLength /\%89v.\+/
 
+" Use spellcheck in markdown and text files
+autocmd FileType markdown setlocal spell
+autocmd FileType text setlocal spell
+
 
 " Linebreak on 500 characters
 set lbr
