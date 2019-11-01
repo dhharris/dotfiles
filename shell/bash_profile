@@ -18,7 +18,7 @@ shopt -s cmdhist
 shopt -s checkwinsize
 
 # Allow a larger history file
-HISTSIZE=130000
+HISTSIZE=1000000
 HISTFILESIZE=-1
 
 # Don't store specific lines
