@@ -21,3 +21,6 @@ if [ -d "${HOME}/.gnupg" ]; then
     export GPG_AGENT_INFO
     export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 fi
+
+# Remove stupid zsh message that apple forces us to read on login
+export BASH_SILENCE_DEPRECATION_WARNING=1
