@@ -296,6 +296,8 @@ set encoding=utf8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files and backups
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Q -> qall
+command Q qall
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
