@@ -84,6 +84,8 @@ set searchurls.chef https://docs.chef.io/search.html#stq=%s
 set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
 " Python documentation
 set searchurls.py https://docs.python.org/3/search.html?q=%s
+" Yahoo finance
+set searchurls.yf https://finance.yahoo.com/quote/%s?ltr=1
 
 "
 " Misc settings
