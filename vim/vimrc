@@ -113,6 +113,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_cpp_compiler_options = '-std=c++14'
+let g:syntastic_cpp_cppcheck_args = '--language=c++'
+let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_checkers = ['cppcheck']
 
