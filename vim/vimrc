@@ -136,10 +136,6 @@ let g:syntastic_warning_symbol = '⚠'
 " Sets how many lines of history VIM has to remember
 set history=1000
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -178,14 +174,9 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-" Avoid garbled characters in Chinese language windows OS
-let $LANG='en'
-set langmenu=en
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
 " Turn on the WiLd menu
 set wildmenu
+set wildmode=longest:full,full
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -316,6 +307,9 @@ autocmd BufEnter *config :setlocal filetype=cfg
 
 " Anything that contains bash in the filename is associated with bash
 autocmd BufEnter *bash* :setlocal filetype=sh
+
+" Assume header files are CPP
+autocmd BufEnter *.h :setlocal filetype=cpp
 
 " Delete trailing white space on save
 func! DeleteTrailingWS()
