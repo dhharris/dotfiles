@@ -301,6 +301,7 @@ autocmd BufEnter *.mcconf :setlocal filetype=python
 autocmd BufEnter *.cinc :setlocal filetype=python
 autocmd BufEnter *.tw :setlocal filetype=python
 autocmd BufEnter TARGETS :setlocal filetype=json
+autocmd BufEnter BUCK :setlocal filetype=json
 
 " I use .local files in configs only
 autocmd BufEnter *.local :setlocal filetype=cfg
