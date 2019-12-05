@@ -8,30 +8,63 @@ if command -v tmux>/dev/null ; then
     fi
 fi
 
+# Check window size after each command
+shopt -s checkwinsize
+
+##### HISTORY SETTINGS #####
+
 # Append to history file
 shopt -s histappend
 
 # Use one command per line
 shopt -s cmdhist
 
-# Check window size after each command
-shopt -s checkwinsize
-
-# Allow a larger history file
-HISTSIZE=1000000
-HISTFILESIZE=-1
-
 # Don't store specific lines
 HISTCONTROL=ignoreboth
 HISTIGNORE='ls:bg:fg:history'
+# maximum number of commands to hold inside bash history buffer
+HISTSIZE=-1
+# maximum number of lines in history file
+HISTFILESIZE=-1
+# save history after each command instead after only closing the session
+PROMPT_COMMAND="history -a $HISTFILE; $PROMPT_COMMAND"
 
-# Record timestamps
-HISTTIMEFORMAT='%F %T '
+## Bash History Filestructure ##
+# 1) Save every session to a unique file s.t. writes occur after every command
+# 2) Write to file after every command.
+# 3) On starting a new terminal, beginning from the most recent history file,
+#   load all history files from prior sessions into the history buffer until a
+#   line count threshold is reached.
+HISTFOLDER=~/.bash_histories
+HISTFILEEXT=history      # only files in $HISTFOLDER with this extension will be read
+mkdir -p $HISTFOLDER
+# create unique file name for this session.
+HISTFILE=$HISTFOLDER/$(date +%Y-%m-%d_%H-%M-%S_%N).$HISTFILEEXT
 
-# Store history immediately
-PROMPT_COMMAND='history -a'
+# Load up to $HISTLINESTOLOAD lines of history on startup
+HISTLINESTOLOAD=200000
+# --reverse lists newest files at first
+names=($(ls --reverse $HISTFOLDER/*.$HISTFILEEXT 2>/dev/null))
+toload=()
+linecount=0
+# Check if is really a file and count lines and only append to $toload if linecount under $HISTLINESTOLOAD
+for fname in ${names[*]}; do
+    if test -f $fname; then
+        linecount=$((linecount+$(wc -l < $fname) ))
+        if test $linecount -ge $HISTLINESTOLOAD; then
+            break
+        fi
+        toload+=($fname)
+    fi
+done
+# Beginning with the oldest, load files in $toload into bash history buffer
+for (( i=${#toload[*]}-1; i>=0; i-- )); do
+    history -r ${toload[$i]}
+done
 
-# Allow 256 bits of color 
+##### END HISTORY SETTINGS #####
+
+# Allow 256 bits of color
 export TERM=xterm-256color
 
 # Restore terminal colors
@@ -43,7 +76,7 @@ alias mysql='/usr/local/mysql/bin/mysql'
 # sshh command for tmux
 alias sshh='$HOME/.sshh/sshh'
 
-# Set default editor to vim 
+# Set default editor to vim
 export EDITOR=vim
 
 # Configure less
@@ -74,7 +107,7 @@ fi
 if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
     source $HOME/dotfiles/tmux/completion.sh
 fi
-    
+
 # FB Specific Configs
 if [ -f ~/bash_profile_fb.sh ]; then
     source ~/bash_profile_fb.sh
