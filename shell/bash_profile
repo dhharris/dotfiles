@@ -21,11 +21,14 @@ shopt -s cmdhist
 
 # Don't store specific lines
 HISTCONTROL=ignoreboth
-HISTIGNORE='ls:bg:fg:history'
-# maximum number of commands to hold inside bash history buffer
-HISTSIZE=-1
-# maximum number of lines in history file
-HISTFILESIZE=-1
+HISTIGNORE='pwd:ls:bg:fg:history'
+# maximum number of commands that bash can store in memory
+# this is used by up/down, ctrl-r
+HISTSIZE=200000
+# maximum number of commands stored in history file
+# determines what can be read by bash on the next session
+HISTFILESIZE=-1  # No limit
+
 # save history after each command instead after only closing the session
 PROMPT_COMMAND="history -a $HISTFILE; $PROMPT_COMMAND"
 
@@ -36,22 +39,20 @@ PROMPT_COMMAND="history -a $HISTFILE; $PROMPT_COMMAND"
 #   load all history files from prior sessions into the history buffer until a
 #   line count threshold is reached.
 HISTFOLDER=~/.bash_histories
-HISTFILEEXT=history      # only files in $HISTFOLDER with this extension will be read
 mkdir -p $HISTFOLDER
+HISTFILEEXT=history      # only files in $HISTFOLDER with this extension will be read
 # create unique file name for this session.
 HISTFILE=$HISTFOLDER/$(date +%Y-%m-%d_%H-%M-%S_%N).$HISTFILEEXT
 
-# Load up to $HISTLINESTOLOAD lines of history on startup
-HISTLINESTOLOAD=200000
-# --reverse lists newest files at first
-names=($(ls --reverse $HISTFOLDER/*.$HISTFILEEXT 2>/dev/null))
+# -t lists newest files first
+names=($(ls -t $HISTFOLDER/*.$HISTFILEEXT 2>/dev/null))
 toload=()
 linecount=0
-# Check if is really a file and count lines and only append to $toload if linecount under $HISTLINESTOLOAD
+# Check if is really a file and count lines and only append to $toload if linecount under $HISTSIZE
 for fname in ${names[*]}; do
     if test -f $fname; then
         linecount=$((linecount+$(wc -l < $fname) ))
-        if test $linecount -ge $HISTLINESTOLOAD; then
+        if test $linecount -ge $HISTSIZE; then
             break
         fi
         toload+=($fname)
