@@ -497,9 +497,9 @@ map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
-" BigGrep (fb)
-if filereadable("/home/engshare/admin/scripts/vim/biggrep.vim")
-    source /home/engshare/admin/scripts/vim/biggrep.vim
+" Source local file, if available
+if filereadable(expand("$HOME/.vimrc.local.vim"))
+    source $HOME/.vimrc.local.vim
 endif
 
 
