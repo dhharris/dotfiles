@@ -21,7 +21,7 @@ shopt -s cmdhist
 
 # Don't store specific lines
 HISTCONTROL=ignoreboth
-HISTIGNORE='pwd:ls:bg:fg:history'
+HISTIGNORE='pwd:ls:bg:fg:history:exit'
 # maximum number of commands that bash can store in memory
 # this is used by up/down, ctrl-r
 HISTSIZE=200000
