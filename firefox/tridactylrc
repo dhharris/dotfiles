@@ -68,6 +68,7 @@ command youfuckedup js document.title = "You fucked up"; const urlParams = new U
 " See :help blacklistadd
 "
 blacklistadd facebook.com/intern/am
+blacklistadd facebook.com/intern/unidash
 blacklistadd studieskolen.danishtogo.dk
 
 "
