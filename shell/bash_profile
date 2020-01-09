@@ -38,7 +38,7 @@ PROMPT_COMMAND="history -a $HISTFILE; $PROMPT_COMMAND"
 # 3) On starting a new terminal, beginning from the most recent history file,
 #   load all history files from prior sessions into the history buffer until a
 #   line count threshold is reached.
-HISTFOLDER=~/.bash_histories
+HISTFOLDER=$HOME/.bash_histories
 mkdir -p $HISTFOLDER
 HISTFILEEXT=history      # only files in $HISTFOLDER with this extension will be read
 # create unique file name for this session.
