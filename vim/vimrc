@@ -65,8 +65,6 @@ Plugin 'tomlion/vim-solidity'
 Plugin 'hhvm/vim-hack'
 " Syntax highlighting for XHP
 Plugin 'mxw/vim-xhp'
-" Syntastic
-Plugin 'vim-syntastic/syntastic'
 " Flake8 linter
 Plugin 'nvie/vim-flake8'
 " Splice
@@ -79,7 +77,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-dispatch'
 " Make the yanked region apparent
 Plugin 'machakann/vim-highlightedyank'
-" YCM auto completion engine
+" YCM auto completion / syntax checking engine
 Plugin 'ycm-core/YouCompleteMe'
 " Shows changes made to a vim buffer\
 Plugin 'jmcantrell/vim-diffchanges'
