@@ -70,6 +70,7 @@ command youfuckedup js document.title = "You fucked up"; const urlParams = new U
 blacklistadd facebook.com/intern/am
 blacklistadd facebook.com/intern/unidash
 blacklistadd studieskolen.danishtogo.dk
+blacklistadd 192.168.86.70
 
 "
 " Custom Search Engines
