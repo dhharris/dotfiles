@@ -13,24 +13,15 @@ shopt -s checkwinsize
 
 ##### HISTORY SETTINGS #####
 
-# Append to history file
-shopt -s histappend
-
-# Use one command per line
-shopt -s cmdhist
-
 # Don't store specific lines
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups:erasedups
 HISTIGNORE='pwd:ls:bg:fg:history'
 # maximum number of commands that bash can store in memory
 # this is used by up/down, ctrl-r
-HISTSIZE=200000
+HISTSIZE=500000
 # maximum number of commands stored in history file
 # determines what can be read by bash on the next session
 HISTFILESIZE=-1  # No limit
-
-# save history after each command instead after only closing the session
-PROMPT_COMMAND="history -a $HISTFILE; $PROMPT_COMMAND"
 
 ## Bash History Filestructure ##
 # 1) Save every session to a unique file s.t. writes occur after every command
@@ -41,6 +32,7 @@ PROMPT_COMMAND="history -a $HISTFILE; $PROMPT_COMMAND"
 HISTFOLDER=$HOME/.bash_histories
 mkdir -p $HISTFOLDER
 HISTFILEEXT=history      # only files in $HISTFOLDER with this extension will be read
+
 # create unique file name for this session.
 HISTFILE=$HISTFOLDER/$(date +%Y-%m-%d_%H-%M-%S_%N).$HISTFILEEXT
 
@@ -63,6 +55,14 @@ for (( i=${#toload[*]}-1; i>=0; i-- )); do
     history -r ${toload[$i]}
 done
 
+# Append to history file
+shopt -s histappend
+
+# Use one command per line
+shopt -s cmdhist
+
+# save history after each command instead after only closing the session
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 ##### END HISTORY SETTINGS #####
 
 # Allow 256 bits of color
