@@ -330,10 +330,11 @@ set softtabstop=4
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-" Limit columns to 80 characters
+" Limit columns to 80 characters, and automatically break lines
 " => 88 characters for python programs
 set columns=80
 set textwidth=80
+set lbr
 autocmd FileType python setlocal columns=88 textwidth=88
 
 " Highlight anything past the column limit
@@ -343,10 +344,6 @@ autocmd FileType python match OverLength /\%89v.\+/
 
 " Use spellcheck in markdown and text files
 autocmd FileType markdown,text setlocal spell spelllang=en_us
-
-" Linebreak on 500 characters
-set lbr
-set tw=500
 
 set autoindent
 set wrap
