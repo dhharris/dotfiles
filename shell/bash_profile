@@ -71,6 +71,9 @@ export TERM=xterm-256color
 # Restore terminal colors
 alias reset_colors='tput sgr0'
 
+# Kill old bash sessions
+alias kill_sessions='for i in $(who -u | grep old | cut -f2 -d[ | cut -f1 -d]); do kill $i; done'
+
 # Easy mysql startup
 alias mysql='/usr/local/mysql/bin/mysql'
 
