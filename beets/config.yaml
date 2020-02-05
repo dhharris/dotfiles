@@ -1,5 +1,6 @@
 directory: ~/Music/mpd
 library: ~/Music/data/musiclibrary.db
+asciify_paths: yes  # Avoid using unicode in filenames
 import:
     move: yes
 match:
@@ -10,7 +11,7 @@ match:
 paths:
     default: %the{$albumartist}/$album/$track $title
 
-plugins: convert embedart fetchart ftintitle the
+plugins: convert edit embedart fetchart ftintitle the
 
 convert:
     copy_album_art: yes
