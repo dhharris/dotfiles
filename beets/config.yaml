@@ -8,14 +8,15 @@ match:
     ignored_media: ['Data CD', 'DVD', 'DVD-Video', 'Blu-ray', 'HD-DVD', 'VCD',
                     'SVCD', 'UMD', 'VHS']
     strong_rec_thresh: 0.10
+
 aunique:
     keys: albumartist album
-    disambiguators: albumtype original_year label catalognum albumdisambig releasegroupdisambig
+    disambiguators: albumdisambig albumtype original_year label catalognum releasegroupdisambig
     bracket: '()'
 paths:
-    default: %the{$albumartist}/$album%aunique{albumtype original_year label catalognum albumdisambig}/$track $title
+    default: %the{$albumartist}/$album%aunique{}/$track $title
 
-plugins: convert edit embedart fetchart ftintitle the
+plugins: convert edit embedart fetchart ftintitle info the 
 
 convert:
     copy_album_art: yes
