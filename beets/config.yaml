@@ -1,6 +1,7 @@
 directory: ~/Music/mpd
 library: ~/Music/data/musiclibrary.db
 asciify_paths: yes  # Avoid using unicode in filenames
+original_date: yes  # Use original release year
 import:
     move: yes
 match:
