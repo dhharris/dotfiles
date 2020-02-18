@@ -56,9 +56,6 @@ command hint_focus hint -;
 " Search for current page in the wayback machine
 command wayback composite get_current_url | tabopen wb
 
-" Shortcut to FB
-command fb open https://www.facebook.com/
-
 command youfuckedup js document.title = "You fucked up"; const urlParams = new URLSearchParams(window.location.search); var query = urlParams.get('q'); var queryshame = query ? "You almost sent the query '" + query + "' to El Googlerino" : "You just wanted to see the cat didn't you? That's okay. It's been logged though"; var querypride = query ? "<h2><a href='https://www.google.com/search?q=" + query + "'>Fuck You, I Meant To Do That</a></h2>" : "<h2><a href='https://www.google.com/search?q=cat+gifs&tbm=isch'>I Want More</a></h2>"; document.body.innerHTML = "<h1>G is for Google</h1><br><h2>" + queryshame + "</h2><img src='https://lakitu.thecubic.net/cat.gif' alt='clownkitty' /><br />" + querypride;
 " TODO: Make google page remix for this^
 " \ document.getElementById("hplogo").src = "logo3w.png";
@@ -88,6 +85,9 @@ set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
 " Yahoo finance
 set searchurls.yf https://finance.yahoo.com/quote/%s?ltr=1
+" Shortcut to fb. No searches because this is the only way I could figure out to
+" alias fb => facebook.com
+set searchurls.fb https://www.facebook.com/
 
 "
 " Misc settings
