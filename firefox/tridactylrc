@@ -85,6 +85,8 @@ set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
 " Yahoo finance
 set searchurls.yf https://finance.yahoo.com/quote/%s?ltr=1
+" Digicert orders shortcut
+set searchurls.digicert https://digicert.com/secure/orders/%s/
 " Shortcut to fb. No searches because this is the only way I could figure out to
 " alias fb => facebook.com
 set searchurls.fb https://www.facebook.com/
