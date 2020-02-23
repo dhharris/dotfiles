@@ -277,6 +277,9 @@ set encoding=utf8
 " Q -> qall
 command Q qall
 
+" W -> w
+command! W w
+
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
