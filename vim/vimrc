@@ -347,6 +347,8 @@ autocmd FileType python match OverLength /\%89v.\+/
 
 " Use spellcheck in markdown and text files
 autocmd FileType markdown,text setlocal spell spelllang=en_us
+" Disable automatic textwrapping in markdown
+autocmd FileType markdown setlocal textwidth=0 wrapmargin=0
 
 set autoindent
 set wrap
