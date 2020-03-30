@@ -72,3 +72,8 @@ statuspanel #statuspanel-label {
   min-width: 1em !important;
   clip-width: 1em !important;
 }
+
+/* Hide "Did you mean to go to" Infobar */
+notification[value="keyword-uri-fixup"]{
+  display:none !important;
+}
