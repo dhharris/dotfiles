@@ -64,8 +64,9 @@ command youfuckedup js document.title = "You fucked up"; const urlParams = new U
 " Ignore tridactyl input on these sites.
 " See :help blacklistadd
 "
-blacklistadd facebook.com/intern/am
-blacklistadd facebook.com/intern/unidash
+blacklistadd (facebook.com|internalfb.com)/intern/am
+blacklistadd (facebook.com|internalfb.com)/intern/unidash
+blacklistadd (facebook.com|internalfb.com)/butterfly
 blacklistadd studieskolen.danishtogo.dk
 blacklistadd 192.168.86.70
 
