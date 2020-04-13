@@ -1,0 +1,3 @@
+[submodule "dotbot"]
+    path = dotbot
+    url = git+ssh://git@github.com:anishathalye/dotbot.git
