@@ -382,6 +382,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Automatically resize panes when window size changes
+autocmd VimResized * wincmd =
+
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
