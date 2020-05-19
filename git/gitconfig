@@ -15,3 +15,5 @@
 	a = add
 [include]
     path = ~/.gitconfig.local
+[url "https://github.com/"]
+	insteadOf = git://github.com/
