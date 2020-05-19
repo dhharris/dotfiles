@@ -79,8 +79,10 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'machakann/vim-highlightedyank'
 " YCM auto completion / syntax checking engine
 Plugin 'ycm-core/YouCompleteMe'
-" Shows changes made to a vim buffer\
+" Shows changes made to a vim buffer
 Plugin 'jmcantrell/vim-diffchanges'
+" Easily swap text
+Plugin 'tommcdo/vim-exchange'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
