@@ -46,6 +46,8 @@ Plugin 'VundleVim/Vundle.vim'
 """""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""
+" YCM auto completion / syntax checking engine
+Plugin 'ycm-core/YouCompleteMe'
 " Format rust code
 Plugin 'rust-lang/rust.vim'
 " Add maktaba and codefmt to the runtimepath.
@@ -77,8 +79,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-dispatch'
 " Make the yanked region apparent
 Plugin 'machakann/vim-highlightedyank'
-" YCM auto completion / syntax checking engine
-Plugin 'ycm-core/YouCompleteMe'
 " Shows changes made to a vim buffer
 Plugin 'jmcantrell/vim-diffchanges'
 " Easily swap text
