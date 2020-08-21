@@ -1,23 +1,12 @@
 ---
 BasedOnStyle: LLVM
-IndentWidth: 4
+IndentWidth: 2
 ColumnLimit: 80
 ---
 Language: Cpp
-IndentWidth: 8
-IndentCaseLabels: true
-AllowShortBlocksOnASingleLine: false
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: false
-AllowShortLoopsOnASingleLine: true
-BreakBeforeBraces: Custom
-BraceWrapping:
-  AfterEnum: true
-  AfterControlStatement: false
-  AfterFunction: true
-  AfterNamespace: true
-  AfterStruct: false
-  AfterUnion: false
-  BeforeCatch: false
-  BeforeElse: false
+# Make public, private, etc accessors only offset by 1
+AccessModifierOffset: -1
+# Force pointers to the type for C++.
+DerivePointerAlignment: false
+PointerAlignment: Left
 ---
