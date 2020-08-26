@@ -1,11 +1,16 @@
 ---
-BasedOnStyle: LLVM
 IndentWidth: 2
 ColumnLimit: 80
 ---
 Language: Cpp
 # Make public, private, etc accessors only offset by 1
 AccessModifierOffset: -1
+AlignAfterOpenBracket: AlwaysBreak
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackArguments: false 
+BinPackParameters: false 
+BreakConstructorInitializers: BeforeColon
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
