@@ -13,7 +13,7 @@ amend =
 hggit = ~/.hgext/hg-git/hggit
 
 [alias]
-what = id -r . -T "{shortest(node, 6)}\t{desc}\n"
+what = id -r . -T "{shortest(node, 6)}\t{desc}\n{join(files, '\n')}\n"
 prev = !$HG co .~1 && echo "Working copy is now at $($HG what)"
 next = !$HG co .~-1 && echo "Working copy is now at $($HG what)"
 log = log -G
