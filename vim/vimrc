@@ -348,12 +348,12 @@ match OverLength /\%81v.\+/
 " Limit of 89 for python
 autocmd FileType python match OverLength /\%89v.\+/
 " Disable for markdown and text files
-autocmd FileType markdown,text match none
+autocmd FileType markdown,text,hgcommmit match none
 
 " Use spellcheck in markdown and text files
-autocmd FileType markdown,text setlocal spell spelllang=en_us
+autocmd FileType markdown,text,hgcommit setlocal spell spelllang=en_us
 " Disable automatic textwrapping in markdown and text files
-autocmd FileType markdown,text setlocal textwidth=0 wrapmargin=0
+autocmd FileType markdown,text,hgcommit setlocal textwidth=0 wrapmargin=0
 
 set autoindent
 set wrap
