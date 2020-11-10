@@ -8,6 +8,11 @@ if command -v tmux>/dev/null ; then
     fi
 fi
 
+# pyenv init
+if command -v pyenv>/dev/null ; then
+    eval "$(pyenv init -)"
+fi
+
 # Check window size after each command
 shopt -s checkwinsize
 
