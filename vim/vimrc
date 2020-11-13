@@ -344,11 +344,17 @@ autocmd FileType python setlocal columns=88 textwidth=88
 
 " Highlight anything past the column limit
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+
+" Set misspelled word mark
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+
+" Default
 match OverLength /\%81v.\+/
 " Limit of 89 for python
 autocmd FileType python match OverLength /\%89v.\+/
 " Disable for markdown and text files
-autocmd FileType markdown,text,hgcommmit match none
+autocmd FileType markdown,text,hgcommit match none
 
 " Use spellcheck in markdown and text files
 autocmd FileType markdown,text,hgcommit setlocal spell spelllang=en_us
