@@ -38,5 +38,11 @@
     - [chsh -s $(which bash), Making bash the default shell]
     - command: bash tridactyl/native/install.sh
       stdout: false
+      stderr: true
       description: Installing tridactyl native
+      quiet: true
+    -
+      command: vim --not-a-term +PluginInstall +qall
+      stdout: false
+      description: Updating vim plugins
       quiet: true
