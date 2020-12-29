@@ -83,6 +83,8 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'jmcantrell/vim-diffchanges'
 " Easily swap text
 Plugin 'tommcdo/vim-exchange'
+" Syntax highlighting for generic log files
+Plugin 'mtdl9/vim-log-highlighting'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
