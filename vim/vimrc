@@ -336,6 +336,7 @@ set tabstop=4
 set softtabstop=4
 autocmd FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " Limit columns to 80 characters, and automatically break lines
 " => 88 characters for python programs
