@@ -25,6 +25,8 @@
     ~/.tridactylrc: 
       if: '[ $(uname) = Darwin ]'
       path: firefox/tridactylrc
+    # Must link directory for karabiner. See
+    # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
     ~/.config/karabiner: 
       if: '[ $(uname) = Darwin ]'
       path: keyboard
