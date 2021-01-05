@@ -17,6 +17,7 @@
     ~/.hgrc: hg/hgrc
     ~/.clang-format: cpp/clang-format
     ~/.myclirc: mysql/myclirc
+    ~/.eslintrc.json: js/eslintrc.json
     ~/.config/flake8: py/flake8
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.config/beets/config.yaml: beets/config.yaml
