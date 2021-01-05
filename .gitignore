@@ -1,1 +1,3 @@
 *.swp
+.DS_Store
+keyboard/automatic_backups

@@ -25,9 +25,10 @@
     ~/.tridactylrc: 
       if: '[ $(uname) = Darwin ]'
       path: firefox/tridactylrc
-    ~/.config/karabiner/karabiner.json: 
+    ~/.config/karabiner: 
       if: '[ $(uname) = Darwin ]'
-      path: keyboard/karabiner.json
+      path: keyboard
+      create: true
     ~/.mpdconf:
       if: '[ $(uname) = Darwin ]'
       path: mpd/mpd.conf
