@@ -117,6 +117,11 @@ if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
     source $HOME/dotfiles/tmux/completion.sh
 fi
 
+# Source local bash_profile if present
+if [ -f $HOME/bash_profile_local.sh ]; then
+    source $HOME/bash_profile_local.sh
+fi
+
 # FB Specific Configs
 if [ -f ~/bash_profile_fb.sh ]; then
     source ~/bash_profile_fb.sh
