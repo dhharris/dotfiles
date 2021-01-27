@@ -1,6 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
-	url = git+ssh://git@github.com:anishathalye/dotbot.git
+	url = git+ssh://git@github.com/anishathalye/dotbot.git
 	ignore = dirty
 [submodule "tridactyl"]
 	path = tridactyl
