@@ -37,6 +37,9 @@
     ~/.config/mpd/.mpd.conf:
       create: true
       path: mpd/mpd.conf
+    ~/.vim/bundle/Vundle.vim:
+      create: true
+      path: Vundle.vim
 
 - shell:
     - [chsh -s $(which bash), Making bash the default shell]
