@@ -116,6 +116,7 @@ let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
 let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '⚠'
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
 " nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
 " nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
