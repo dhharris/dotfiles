@@ -111,6 +111,8 @@ endtry
 """""""""""""""""""""""""""""""
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+" Use vim :pwd instead of file location
+let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
 let g:ycm_error_symbol = '✗'
