@@ -141,9 +141,7 @@ export PATH="$HOME/scripts:$PATH"
 export COWPATH="/usr/share/cowsay"
 
 # Configure pyenv - placed near end since it also manipulates PATH
-if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init - >/dev/null 2>&1)"
-fi
+eval "$(pyenv init -)"
 
 ####################
 # Helper functions
