@@ -116,6 +116,7 @@ seturl facebook.com allowautofocus true
 seturl internalfb.com allowautofocus true
 seturl workplace.com allowautofocus true
 seturl regex101.com allowautofocus true
+seturl github.io allowautofocus true
 
 "
 " URL redirects
