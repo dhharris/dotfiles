@@ -1,3 +1,5 @@
+# Make sure chef doesn't add anything
+#CHEF.NO.SOURCE
 # Set vim mode
 set -o vi
 
@@ -117,12 +119,6 @@ fi
 if [ -f $HOME/bash_profile_local.sh ]; then
     source $HOME/bash_profile_local.sh
 fi
-
-# FB Specific Configs
-if [ -f ~/bash_profile_fb.sh ]; then
-    source ~/bash_profile_fb.sh
-fi
-#CHEF.NO.SOURCE
 
 # Make vim the default if it is installed
 if [ -x "$(command -v vim)" ]; then
