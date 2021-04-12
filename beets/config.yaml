@@ -21,7 +21,7 @@ plugins: convert edit embedart fetchart ftintitle info the
 
 convert:
     copy_album_art: yes
-    dest: ~/Music/converted_by_beets
+    extension: mp3
 
 fetchart:
     sources: coverart itunes * # Prioritize itunes over others
