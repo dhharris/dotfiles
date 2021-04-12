@@ -112,6 +112,7 @@ set hintdelay 100
 " See tridactyl FAQ
 set allowautofocus false
 seturl coderpad.io allowautofocus true
+seturl codeshare.io allowautofocus true
 seturl facebook.com allowautofocus true
 seturl internalfb.com allowautofocus true
 seturl workplace.com allowautofocus true
