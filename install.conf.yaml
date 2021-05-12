@@ -44,6 +44,10 @@
 - shell:
     - command: '[[ "$SHELL" =~ "bash" ]] || chsh -s $(which bash)'
       description: Making bash the default shell
+    - command: bash shell/homebrew.sh
+      description: Installing homebrew packages
+      stderr: true
+      stdout: true
     - command: bash tridactyl/native/install.sh
       stdout: false
       stderr: true
