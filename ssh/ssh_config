@@ -1,3 +1,7 @@
+Host github.com
+  IdentityFile ~/.ssh/id_rsa_github
+  IdentitiesOnly yes
+
 Host *
  IgnoreUnknown AddKeysToAgent,UseKeychain
  AddKeysToAgent yes
@@ -6,7 +10,3 @@ Host *
  ControlMaster auto
  ControlPath ~/.ssh/controlmasters/%r@%h:%p
  ControlPersist 6h
-
-Host github.com
-  IdentityFile ~/.ssh/id_rsa_github
-  IdentitiesOnly yes
