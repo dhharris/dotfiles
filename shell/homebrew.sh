@@ -1,5 +1,5 @@
 #!/bin/bash
-packages=("reattach-to-user-namespace" "shellcheck" "tmux" "vim")
+packages=("coreutils" "reattach-to-user-namespace" "tmux" "vim" "MisterTea/et/et")
 
 if [[ "$OSTYPE" != "darwin"* ]]; then
     echo "Not macOS. Exiting."
