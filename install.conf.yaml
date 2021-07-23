@@ -5,7 +5,7 @@
 - clean: ['~', '~/.config']
 
 - create:
-    - ~/.ssh/controlmaster
+    - ~/.ssh/controlmasters
 
 - link:
     ~/.vimrc: vim/vimrc
