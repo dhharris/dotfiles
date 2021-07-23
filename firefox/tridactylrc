@@ -119,6 +119,7 @@ seturl workplace.com allowautofocus true
 seturl regex101.com allowautofocus true
 seturl github.io allowautofocus true
 seturl codesignal.com allowautofocus true
+seturl google.com allowautofocus true
 
 "
 " URL redirects
