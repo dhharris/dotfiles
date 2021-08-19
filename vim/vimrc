@@ -85,6 +85,8 @@ Plugin 'jmcantrell/vim-diffchanges'
 Plugin 'tommcdo/vim-exchange'
 " Syntax highlighting for generic log files
 Plugin 'mtdl9/vim-log-highlighting'
+" Syntax highlighting for plantuml
+Plugin 'aklt/plantuml-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
