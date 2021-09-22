@@ -120,6 +120,7 @@ seturl regex101.com allowautofocus true
 seturl github.io allowautofocus true
 seturl codesignal.com allowautofocus true
 seturl google.com allowautofocus true
+seturl myworkdayjobs.com allowautofocus true
 
 "
 " URL redirects
