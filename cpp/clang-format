@@ -6,6 +6,7 @@ Language: Cpp
 # Make public, private, etc accessors only offset by 1
 AccessModifierOffset: -1
 AlignAfterOpenBracket: AlwaysBreak
+AlignOperands: DontAlign
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortFunctionsOnASingleLine: Inline
 AlwaysBreakTemplateDeclarations: Yes
