@@ -54,7 +54,7 @@
       description: Installing tridactyl native
       quiet: true
     -
-      command: timeout 30 vim --not-a-term +PluginInstall +qall
+      command: timeout 20 vim --not-a-term +PluginInstall +qall
       stdout: false
       description: Updating vim plugins
       quiet: true
