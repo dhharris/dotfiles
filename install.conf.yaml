@@ -23,16 +23,16 @@
     ~/.config/beets/config.yaml: beets/config.yaml
     ~/.ssh/config: ssh/ssh_config
     ~/.tridactylrc: 
-      if: '[ $(uname) = Darwin ]'
+      if: '[ "$OSTYPE" =~ "darwin"* ]'
       path: firefox/tridactylrc
     # Must link directory for karabiner. See
     # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
     ~/.config/karabiner: 
-      if: '[ $(uname) = Darwin ]'
+      if: '[ "$OSTYPE" =~ "darwin"* ]'
       path: keyboard
       create: true
     ~/.mpdconf:
-      if: '[ $(uname) = Darwin ]'
+      if: '[ "$OSTYPE" =~ "darwin"* ]'
       path: mpd/mpd.conf
     ~/.config/mpd/.mpd.conf:
       create: true
@@ -48,7 +48,7 @@
       description: Installing homebrew packages
       stderr: true
       stdout: true
-    - command: bash tridactyl/native/install.sh
+    - command: '[[ "$OSTYPE" =~ "darwin"* ]] && bash tridactyl/native/install.sh'
       stdout: false
       stderr: true
       description: Installing tridactyl native
