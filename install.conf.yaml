@@ -40,6 +40,9 @@
     ~/.vim/bundle/Vundle.vim:
       create: true
       path: Vundle.vim
+    ~/.vim/after/ftplugin/python.vim:
+      create: true
+      path: vim/python.vim
 
 - shell:
     - command: '[[ "$SHELL" =~ "bash" ]] || chsh -s $(which bash)'
