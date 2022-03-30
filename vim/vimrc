@@ -87,6 +87,8 @@ Plugin 'tommcdo/vim-exchange'
 Plugin 'mtdl9/vim-log-highlighting'
 " Syntax highlighting for plantuml
 Plugin 'aklt/plantuml-syntax'
+" Syntax highlighting for modern python
+Plugin 'vim-python/python-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,6 +123,8 @@ let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '⚠'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
+" python-syntax
+let g:python_highlight_all = 1
 " nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
 " nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
