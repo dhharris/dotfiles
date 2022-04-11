@@ -6,6 +6,7 @@
 
 - create:
     - ~/.ssh/controlmasters
+    - ~/.bundle
 
 - link:
     ~/.vimrc: vim/vimrc
@@ -37,7 +38,7 @@
     ~/.config/mpd/.mpd.conf:
       create: true
       path: mpd/mpd.conf
-    ~/.vim/bundle/Vundle.vim:
+    ~/.bundle/Vundle.vim:
       create: true
       path: Vundle.vim
     ~/.vim/after/ftplugin/python.vim:
@@ -59,5 +60,5 @@
     -
       command: timeout 20 vim --not-a-term +PluginInstall +qall
       stdout: false
-      description: Updating vim plugins
+      description: Installing vim plugins
       quiet: true
