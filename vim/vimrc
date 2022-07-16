@@ -89,6 +89,9 @@ Plugin 'mtdl9/vim-log-highlighting'
 Plugin 'aklt/plantuml-syntax'
 " Syntax highlighting for modern python
 Plugin 'vim-python/python-syntax'
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'preservim/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -129,6 +132,9 @@ let g:python_highlight_all = 1
 " nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+set conceallevel=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
