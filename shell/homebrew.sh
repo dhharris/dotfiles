@@ -7,9 +7,8 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 fi
 
 if ! [ -x "$(command -v brew)" ]; then
-    echo "Installing homebrew..."
-    curl -fsSL \
-        https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    echo "MANUAL STEP REQUIRED: You need to install homebew."
+    exit
 fi
 
 for pkg in ${packages[@]}; do
