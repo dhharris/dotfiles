@@ -3,14 +3,6 @@
 # Set vim mode
 set -o vi
 
-# Use tmux by default on local connections
-if command -v tmux>/dev/null ; then
-    if  [ ! "$SSH_CONNECTION" ]; then
-        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux -u
-    fi
-fi
-
-
 # Check window size after each command
 shopt -s checkwinsize
 
@@ -111,10 +103,6 @@ if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; t
     source ~/dotfiles/shell/bash_profile_macos
 fi
 
-if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
-    source $HOME/dotfiles/tmux/completion.sh
-fi
-
 # Source local bash_profile if present
 if [ -f $HOME/bash_profile_local.sh ]; then
     source $HOME/bash_profile_local.sh
@@ -124,6 +112,19 @@ fi
 if [ -x "$(command -v vim)" ]; then
     alias vi=vim
 fi
+
+## TMUX
+# Use tmux by default on local connections
+if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
+    source $HOME/dotfiles/tmux/completion.sh
+fi
+
+if command -v tmux>/dev/null ; then
+    if  [ ! "$SSH_CONNECTION" ]; then
+        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux -u
+    fi
+fi
+## // TMUX
 
 # PATH Updates
 export PATH="/usr/local/opt/llvm/bin:$PATH"
