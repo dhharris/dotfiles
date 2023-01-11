@@ -76,6 +76,11 @@ alias mysql='/usr/local/mysql/bin/mysql'
 # sshh command for tmux
 alias sshh='$HOME/.sshh/sshh'
 
+# Make vim the default if it is installed
+if [ -x "$(command -v vim)" ]; then
+    alias vi=vim
+fi
+
 # Set default editor to vim
 export EDITOR=vim
 
@@ -99,34 +104,6 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 # Make grep use colors by default
 export GREP_OPTIONS='--color=auto'
 
-# Load other configs for MacOS
-if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; then
-    source ~/dotfiles/shell/bash_profile_macos
-fi
-
-# Source local bash_profile if present
-if [ -f $HOME/bash_profile_local.sh ]; then
-    source $HOME/bash_profile_local.sh
-fi
-
-# Make vim the default if it is installed
-if [ -x "$(command -v vim)" ]; then
-    alias vi=vim
-fi
-
-## TMUX
-# Use tmux by default on local connections
-if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
-    source $HOME/dotfiles/tmux/completion.sh
-fi
-
-if command -v tmux>/dev/null ; then
-    if  [ ! "$SSH_CONNECTION" ]; then
-        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux -u
-    fi
-fi
-## // TMUX
-
 ## PATH
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
@@ -143,6 +120,31 @@ if [ -x "$(command -v pyenv)" ]; then
     eval "$(pyenv init -)"
 fi
 ## // PATH
+
+## SOURCES
+# Load other configs for MacOS
+if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; then
+    source ~/dotfiles/shell/bash_profile_macos
+fi
+
+# Source local bash_profile if present
+if [ -f $HOME/bash_profile_local.sh ]; then
+    source $HOME/bash_profile_local.sh
+fi
+## // SOURCES
+
+## TMUX
+# Use tmux by default on local connections
+if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
+    source $HOME/dotfiles/tmux/completion.sh
+fi
+
+if command -v tmux>/dev/null ; then
+    if  [ ! "$SSH_CONNECTION" ]; then
+        [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ] && exec tmux -u
+    fi
+fi
+## // TMUX
 
 ####################
 # Helper functions
