@@ -32,3 +32,6 @@ fi
 
 # Set PATH for Scala/Coursier
 export PATH="$PATH:/Users/dhh/Library/Application Support/Coursier/bin"
+
+# Terraform tab completion
+test -x /opt/homebrew/bin/terraform && complete -C $_ terraform
