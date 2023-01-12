@@ -78,7 +78,6 @@ set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
 set searchurls.archive https://archive.org/search.php?query=%s
 set searchurls.mb https://musicbrainz.org/search?query=%s&type=release&method=indexed
 set searchurls.wb https://web.archive.org/web/*/%s
-set searchurls.chef https://docs.chef.io/search.html#stq=%s
 
 " Library Genesis (for textbooks, etc)
 set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
@@ -86,11 +85,8 @@ set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
 set searchurls.py https://docs.python.org/3/search.html?q=%s
 " Yahoo finance
 set searchurls.yf https://finance.yahoo.com/quote/%s?ltr=1
-" Digicert orders shortcut
-set searchurls.digicert https://digicert.com/secure/orders/%s/
-" Shortcut to fb. No searches because this is the only way I could figure out to
-" alias fb => facebook.com
-set searchurls.fb https://www.facebook.com/
+" LP Jira/Tasks shortcut
+set searchurls.t https://logpoint.atlassian.net/browse/%s
 
 "
 " Misc settings
@@ -114,7 +110,6 @@ set allowautofocus false
 seturl coderpad.io allowautofocus true
 seturl codeshare.io allowautofocus true
 seturl facebook.com allowautofocus true
-seturl internalfb.com allowautofocus true
 seturl workplace.com allowautofocus true
 seturl regex101.com allowautofocus true
 seturl github.io allowautofocus true
@@ -134,8 +129,6 @@ autocmd DocStart ^http(s?)://www.amazon.com js tri.excmds.urlmodify("-t", "www",
 autocmd DocStart ^http(s?)://oldschoolrunescape.fandom.com js tri.excmds.urlmodify("-t", "oldschoolrunescape.fandom.com", "oldschool.runescape.wiki")
 " Duck Duck Go sucks
 " autocmd DocLoad duckduckgo youfuckedup
-
-autocmd DocStart ^http(s?)://www.internalfb.com js tri.excmds.source()
 
 " This will have to do until someone writes us a nice syntax file :)
 " vim: set filetype=vim:
