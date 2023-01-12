@@ -48,17 +48,15 @@
 - shell:
     - command: '[[ "$SHELL" =~ "bash" ]] || chsh -s $(which bash)'
       description: Making bash the default shell
+      quiet: true
     - command: bash shell/homebrew.sh
       description: Installing homebrew packages
-      stderr: true
-      stdout: true
     - command: '[[ "$OSTYPE" =~ "darwin"* ]] && bash tridactyl/native/install.sh'
       stdout: false
       stderr: true
       description: Installing tridactyl native
       quiet: true
-    -
-      command: timeout 20 vim --not-a-term +PluginInstall +qall
+    - command: timeout 20 vim --not-a-term +PluginInstall +qall
       stdout: false
       description: Installing vim plugins
       quiet: true
