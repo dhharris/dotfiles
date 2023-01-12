@@ -60,3 +60,6 @@
       stdout: false
       description: Installing vim plugins
       quiet: true
+    - command: 'curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash'
+      description: Updating git completion
+      quiet: true
