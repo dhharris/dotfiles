@@ -22,7 +22,7 @@
     ~/.config/flake8: py/flake8
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.config/beets/config.yaml: beets/config.yaml
-    ~/.ssh/config: ssh/ssh_config
+    ~/.ssh/config: ssh/config
     ~/.tridactylrc: 
       if: '[[ "$OSTYPE" =~ "darwin"* ]]'
       path: firefox/tridactylrc
