@@ -116,9 +116,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export COWPATH="/usr/share/cowsay"
 
 # Configure pyenv - placed near end since it also manipulates PATH
-if [ -x "$(command -v pyenv)" ]; then
-    eval "$(pyenv init -)"
-fi
+test -x "$(command -v pyenv)" && eval "$(pyenv init -)"
 ## // PATH
 
 ## SOURCES
@@ -127,20 +125,16 @@ if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; t
     source ~/dotfiles/shell/bash_profile_macos
 fi
 
-# Source local bash_profile if present
-if [ -f $HOME/bash_profile_local.sh ]; then
-    source $HOME/bash_profile_local.sh
-fi
-
 # Git completion
 test -f $HOME/.git-completion.bash && source $_
+
+# Source local bash_profile if present
+test -f $HOME/bash_profile_local.sh && source $_
 ## // SOURCES
 
 ## TMUX
 # Use tmux by default on local connections
-if [ -f $HOME/dotfiles/tmux/completion.sh ]; then
-    source $HOME/dotfiles/tmux/completion.sh
-fi
+test -f $HOME/dotfiles/tmux/completion.sh && source $_
 
 if command -v tmux>/dev/null ; then
     if  [ ! "$SSH_CONNECTION" ]; then
