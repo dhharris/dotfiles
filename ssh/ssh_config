@@ -2,6 +2,10 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519_github
   IdentitiesOnly yes
 
+Host gitlab.com
+  IdentityFile ~/.ssh/id_ed25519_gitlab
+  IdentitiesOnly yes
+
 Host *
  IgnoreUnknown AddKeysToAgent,UseKeychain
  AddKeysToAgent yes
