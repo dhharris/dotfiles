@@ -24,16 +24,16 @@
     ~/.config/beets/config.yaml: beets/config.yaml
     ~/.ssh/config: ssh/ssh_config
     ~/.tridactylrc: 
-      if: '[ "$OSTYPE" =~ "darwin"* ]'
+      if: '[[ "$OSTYPE" =~ "darwin"* ]]'
       path: firefox/tridactylrc
     # Must link directory for karabiner. See
     # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
     ~/.config/karabiner: 
-      if: '[ "$OSTYPE" =~ "darwin"* ]'
+      if: '[[ "$OSTYPE" =~ "darwin"* ]]'
       path: keyboard
       create: true
     ~/.mpdconf:
-      if: '[ "$OSTYPE" =~ "darwin"* ]'
+      if: '[[ "$OSTYPE" =~ "darwin"* ]]'
       path: mpd/mpd.conf
     ~/.config/mpd/.mpd.conf:
       create: true
