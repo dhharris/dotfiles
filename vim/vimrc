@@ -67,8 +67,8 @@ Plugin 'tomlion/vim-solidity'
 Plugin 'hhvm/vim-hack'
 " Syntax highlighting for XHP
 Plugin 'mxw/vim-xhp'
-" Flake8 linter
-Plugin 'nvie/vim-flake8'
+" Black python linter
+Plugin 'psf/black'
 " Splice
 Plugin 'sjl/splice.vim'
 " surround.vim
