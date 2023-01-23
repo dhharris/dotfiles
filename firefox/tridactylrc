@@ -117,6 +117,7 @@ seturl codesignal.com allowautofocus true
 seturl google.com allowautofocus true
 seturl myworkdayjobs.com allowautofocus true
 seturl console.aws.amazon.com allowautofocus true
+seturl gitlab.com allowautofocus true
 
 "
 " URL redirects
