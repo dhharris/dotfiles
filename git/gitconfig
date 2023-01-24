@@ -18,3 +18,5 @@
     path = ~/.gitconfig.local
 [url "https://github.com/"]
 	insteadOf = git://github.com/
+[remote "origin"]
+	prune = true
