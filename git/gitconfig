@@ -13,6 +13,7 @@
 	ci = commit
 	st = status
 	a = add
+	graph = log --graph
 [include]
     path = ~/.gitconfig.local
 [url "https://github.com/"]
