@@ -64,6 +64,7 @@ command wayback composite get_current_url | tabopen wb
 " Ignore tridactyl input on these sites.
 " See :help blacklistadd
 "
+blacklistadd logpoint.atlassian.net/browse/
 blacklistadd studieskolen.danishtogo.dk
 blacklistadd 192.168.86.70
 
