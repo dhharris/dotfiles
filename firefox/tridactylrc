@@ -64,9 +64,6 @@ command wayback composite get_current_url | tabopen wb
 " Ignore tridactyl input on these sites.
 " See :help blacklistadd
 "
-blacklistadd (facebook.com|internalfb.com)/intern/am
-blacklistadd (facebook.com|internalfb.com)/intern/unidash
-blacklistadd (facebook.com|internalfb.com)/butterfly
 blacklistadd studieskolen.danishtogo.dk
 blacklistadd 192.168.86.70
 
