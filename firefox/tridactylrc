@@ -71,6 +71,7 @@ blacklistadd 192.168.86.70
 " Custom Search Engines
 "
 set searchurls.g https://www.google.com/search?q=%s
+set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
 set searchurls.archive https://archive.org/search.php?query=%s
 set searchurls.mb https://musicbrainz.org/search?query=%s&type=release&method=indexed
