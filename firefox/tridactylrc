@@ -66,6 +66,7 @@ command wayback composite get_current_url | tabopen wb
 "
 blacklistadd studieskolen.danishtogo.dk
 blacklistadd 192.168.86.70
+blacklistadd logpoint.atlassian.net
 
 "
 " Custom Search Engines
