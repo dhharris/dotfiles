@@ -72,6 +72,7 @@ blacklistadd logpoint.atlassian.net
 " Custom Search Engines
 "
 set searchurls.g https://www.google.com/search?q=%s
+set searchurls.lucky https://www.google.com/search?gfns=1&sourceid=navclient&q=%s
 set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
 set searchurls.archive https://archive.org/search.php?query=%s
@@ -86,6 +87,8 @@ set searchurls.py https://docs.python.org/3/search.html?q=%s
 set searchurls.yf https://finance.yahoo.com/quote/%s?ltr=1
 " LP Jira/Tasks shortcut
 set searchurls.t https://logpoint.atlassian.net/browse/%s
+" Terraform docs
+set searchurls.tf https://www.google.com/search?gfns=1&sourceid=navclient&q=terraform+%s
 
 "
 " Misc settings
