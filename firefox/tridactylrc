@@ -127,8 +127,6 @@ seturl gitlab.com allowautofocus true
 
 " New reddit is bad
 autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
-" Mosquito nets won't make themselves
-autocmd DocStart ^http(s?)://www.amazon.com js tri.excmds.urlmodify("-t", "www", "smile")
 " Don't use fandom RS wiki
 autocmd DocStart ^http(s?)://oldschoolrunescape.fandom.com js tri.excmds.urlmodify("-t", "oldschoolrunescape.fandom.com", "oldschool.runescape.wiki")
 " Duck Duck Go sucks
