@@ -343,6 +343,7 @@ let delete_trailing_ws_filetypes = [
             \'php',
             \'hack',
             \'terraform',
+            \'yaml',
             \]
 
 autocmd BufWritePre * if count(delete_trailing_ws_filetypes, &filetype)
