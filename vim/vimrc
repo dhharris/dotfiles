@@ -331,7 +331,21 @@ func! DeleteTrailingWS()
 endfunc
 
 " Set up to work for certain filetypes
-autocmd BufWritePre * if count(['c', 'cfg', 'cpp', 'markdown', 'python', 'ruby', 'sh', 'vim', 'php', 'hack', 'terraform'],&filetype)
+let delete_trailing_ws_filetypes = [
+            \'c',
+            \'cfg',
+            \'cpp',
+            \'markdown',
+            \'python',
+            \'ruby',
+            \'sh',
+            \'vim',
+            \'php',
+            \'hack',
+            \'terraform',
+            \]
+
+autocmd BufWritePre * if count(delete_trailing_ws_filetypes, &filetype)
             \ | call DeleteTrailingWS()
             \ | endif
 
