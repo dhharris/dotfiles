@@ -6,13 +6,6 @@ alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 # that may be important.
 #alias rm=trash
 
-py_version="$(python -V 2>&1)"
-if ! [[ $py_version  =~ ^Python\ 3.* ]]; then
-    RED='\033[0;31m'
-    NC='\033[0m' # No color
-    echo -e "${RED}[WARN]${NC} python version <3"
-fi
-
 # on OS X with GPGTools, comment out the next line:
 #eval $(gpg-agent --daemon)
 GPG_TTY=$(tty)
