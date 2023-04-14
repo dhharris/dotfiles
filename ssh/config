@@ -5,12 +5,19 @@ Host github.com
 Host gitlab.com
   IdentityFile ~/.ssh/id_ed25519_gitlab
   IdentitiesOnly yes
+  # Configuration used by gitlab
+  # See https://gitlab.com/gitlab-com/gl-infra/reliability/-/blob/master/onboarding/ssh-config
+  ControlPersist 30m
+  ServerAliveInterval 30
+
 
 Host *
  IgnoreUnknown AddKeysToAgent,UseKeychain
  AddKeysToAgent yes
  UseKeychain yes
  IdentityFile ~/.ssh/id_rsa
+ ConnectionAttempts 1
+ ConnectTimeout 2
  ControlMaster auto
  ControlPath ~/.ssh/controlmasters/%r@%h:%p
  ControlPersist 6h
