@@ -23,6 +23,10 @@
     tag = bold yellow
     remoteBranch = yellow
     stash = bold cyan
+[color "branch"]
+    current = bold magenta
+    local = green
+    remote = yellow
 [log]
     graphColors = white
 [include]
