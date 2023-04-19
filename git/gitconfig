@@ -7,13 +7,24 @@
     	pager = less -+$LESS -FRX
 [push]
 	default = simple
+[pretty]
+    smartlog = format: %C(bold yellow)%h%Creset %C(white)%cd %ae%Creset%C(auto)%d%n%C(white)%w(,1)%s%n%Creset
 [alias]
 	co = checkout
 	br = branch
 	ci = commit
 	st = status
 	a = add
-	graph = log --graph
+    smartlog = log --graph --all --pretty=smartlog --abbrev-commit --date=relative
+	sl = !git smartlog
+[color "decorate"]
+    head = bold magenta
+    branch = green
+    tag = bold yellow
+    remoteBranch = yellow
+    stash = bold cyan
+[log]
+    graphColors = white
 [include]
     path = ~/.gitconfig.local
 [url "https://github.com/"]
