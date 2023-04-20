@@ -15,7 +15,7 @@
 	ci = commit
 	st = status
 	a = add
-    smartlog = log --graph --all --pretty=smartlog --abbrev-commit --date=relative -5
+    smartlog = log --graph --all --pretty=smartlog --abbrev-commit --date=relative -10
 	sl = !git smartlog
 [color "decorate"]
     head = bold magenta
