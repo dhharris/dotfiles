@@ -27,6 +27,10 @@
     current = bold magenta
     local = green
     remote = yellow
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = cyan
 [log]
     graphColors = white
 [include]
