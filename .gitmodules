@@ -2,9 +2,9 @@
 	path = dotbot
 	url = git+ssh://git@github.com/anishathalye/dotbot.git
 	ignore = dirty
-[submodule "tridactyl"]
-	path = tridactyl
-	url = git+ssh://git@github.com/tridactyl/tridactyl.git
 [submodule "Vundle.vim"]
 	path = Vundle.vim
 	url = git+ssh://git@github.com/VundleVim/Vundle.vim.git
+[submodule "tridactyl"]
+	path = tridactyl
+	url = git+ssh://git@github.com/tridactyl/native_messenger.git

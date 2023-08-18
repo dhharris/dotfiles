@@ -48,7 +48,7 @@
       quiet: true
     - command: bash shell/homebrew.sh
       description: Installing homebrew packages
-    - command: '[[ "$OSTYPE" =~ "darwin"* ]] && bash tridactyl/native/install.sh'
+    - command: '[[ "$OSTYPE" =~ "darwin"* ]] && bash tridactyl/installers/install.sh'
       stdout: false
       stderr: true
       description: Installing tridactyl native
