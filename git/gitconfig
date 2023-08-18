@@ -36,7 +36,7 @@
 [include]
     path = ~/.gitconfig.local
 [includeIf "hasconfig:remote.*.url:git@gitlab.com:logpoint/**"]
-    path = ~/.gitconfig-logpoint
+    path = ~/.gitconfig.logpoint
 [url "https://github.com/"]
 	insteadOf = git://github.com/
 [remote "origin"]
