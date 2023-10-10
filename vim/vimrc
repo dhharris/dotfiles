@@ -96,6 +96,8 @@ Plugin 'preservim/vim-markdown'
 Plugin 'hashivim/vim-terraform'
 " Ansible
 Plugin 'pearofducks/ansible-vim'
+" More full featured autocompletion for python compared to YCM
+Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -130,6 +132,8 @@ let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '⚠'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
+" Use jedi-vim instead
+let g:ycm_filetype_blacklist = {'python': 1}
 " python-syntax
 let g:python_highlight_all = 1
 " nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
@@ -139,6 +143,8 @@ let g:python_highlight_all = 1
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 set conceallevel=2
+" jedi-vim
+let g:jedi#completions_command = "<leader>a"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
