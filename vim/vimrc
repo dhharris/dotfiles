@@ -5,8 +5,8 @@
 " Sections:
 "    -> Vundle
 "       -> Plugins
-"       -> Configuration
 "    -> General
+"    -> Plugins Configuration
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Files and backups
