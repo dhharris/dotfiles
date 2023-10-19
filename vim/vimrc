@@ -119,33 +119,6 @@ filetype plugin indent on    " required
 catch
 endtry
 
-"""""""""""""""""""""""""""""""
-" => Plugins Configuration
-"""""""""""""""""""""""""""""""
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-" Use vim :pwd instead of file location
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
-let g:ycm_error_symbol = '✗'
-let g:ycm_warning_symbol = '⚠'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
-" Use jedi-vim instead
-let g:ycm_filetype_blacklist = {'python': 1}
-" python-syntax
-let g:python_highlight_all = 1
-" nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
-" nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
-" vim-markdown
-let g:vim_markdown_folding_disabled = 1
-set conceallevel=2
-" jedi-vim
-let g:jedi#completions_command = "<leader>a"
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,6 +145,35 @@ command W w !sudo tee % > /dev/null
 
 " Toggle paste mode to prevent auto indents
 set pastetoggle=<F3>
+
+"""""""""""""""""""""""""""""""
+" => Plugins Configuration
+"""""""""""""""""""""""""""""""
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+" Use vim :pwd instead of file location
+let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
+let g:ycm_error_symbol = '✗'
+let g:ycm_warning_symbol = '⚠'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
+let g:ycm_gopls_binary_path = expand('$GOPATH/bin/gopls')
+" nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
+nnoremap <leader>gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
+" Use jedi-vim instead
+let g:ycm_filetype_blacklist = {'python': 1}
+" python-syntax
+let g:python_highlight_all = 1
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+set conceallevel=2
+" jedi-vim
+let g:jedi#completions_command = "<leader>a"
+let g:jedi#goto_command = "<leader>gf"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -379,6 +381,7 @@ autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " Automatically break lines
 set lbr
