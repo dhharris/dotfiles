@@ -160,12 +160,22 @@ let g:ycm_warning_symbol = '⚠'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
 let g:ycm_gopls_binary_path = expand('$GOPATH/bin/gopls')
+let g:ycm_seed_identifiers_with_syntax = 1
 " nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
 nnoremap <leader>gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
 " nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
 " Use jedi-vim instead
 let g:ycm_filetype_blacklist = {'python': 1}
+" Add custom language servers here
+let g:ycm_language_server = [
+    \   {
+    \     'name': 'terraform',
+    \     'cmdline': [ 'terraform-ls', 'serve' ],
+    \     'filetypes': [ 'terraform' ],
+    \     'project_root_files': [ '*.tf', '*.tfvars' ],
+    \   },
+    \ ]
 " python-syntax
 let g:python_highlight_all = 1
 " vim-markdown
@@ -321,11 +331,6 @@ autocmd BufEnter *.cinc :setlocal filetype=python
 autocmd BufEnter *.tw :setlocal filetype=python
 autocmd BufEnter TARGETS :setlocal filetype=json
 autocmd BufEnter BUCK :setlocal filetype=json
-
-" I use .local files in configs only
-autocmd BufEnter *.local :setlocal filetype=cfg
-" Any file that ends with config
-autocmd BufEnter *config :setlocal filetype=cfg
 
 " Anything that contains bash in the filename is associated with bash
 autocmd BufEnter *bash* :setlocal filetype=sh
