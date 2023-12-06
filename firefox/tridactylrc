@@ -129,7 +129,7 @@ seturl localhost allowautofocus true
 "
 
 " New reddit is bad
-autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
+autocmd DocStart ^http(s?)://www.reddit.com/r/ js tri.excmds.urlmodify("-t", "www", "old")
 " Don't use fandom RS wiki
 autocmd DocStart ^http(s?)://oldschoolrunescape.fandom.com js tri.excmds.urlmodify("-t", "oldschoolrunescape.fandom.com", "oldschool.runescape.wiki")
 " Duck Duck Go sucks
