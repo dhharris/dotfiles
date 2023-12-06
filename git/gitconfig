@@ -1,3 +1,4 @@
+# vim: syntax=gitconfig
 [user]
 	name = David Harris
 	email = dhharris9@gmail.com
