@@ -16,6 +16,8 @@
 	ci = commit
 	st = status
 	a = add
+    # Allows selectively reverting changes
+    select = checkout HEAD~1 -p
     # smartlog = log --graph --all --pretty=smartlog --abbrev-commit --date=relative -10
 	# sl = !git smartlog
 [color "decorate"]
