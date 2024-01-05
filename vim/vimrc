@@ -348,8 +348,8 @@ endfunc
 " Set up to work for certain filetypes
 let delete_trailing_ws_filetypes = [
             \'c',
-            \'cfg',
             \'cpp',
+            \'conf',
             \'markdown',
             \'python',
             \'ruby',
