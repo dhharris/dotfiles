@@ -1,21 +1,21 @@
 # vim: syntax=gitconfig
 [user]
-	name = David Harris
-	email = dhharris9@gmail.com
-	signingkey = 4FBC8D3F
+    name = David Harris
+    email = dhharris9@gmail.com
+    signingkey = 4FBC8D3F
 [core]
-	editor = vim
-    	pager = less -+$LESS -FRX
+    editor = vim
+    pager = less -+$LESS -FRX
 [push]
-	default = simple
+    default = simple
 [pretty]
     smartlog = format: %C(bold yellow)%h%Creset %C(white)%cd %ae%Creset%C(auto)%d%n%C(white)%w(,1)%s%n%Creset
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	a = add
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    a = add
     # Allows selectively reverting changes
     select = checkout HEAD~1 -p
     # smartlog = log --graph --all --pretty=smartlog --abbrev-commit --date=relative -10
@@ -41,6 +41,6 @@
 [includeIf "hasconfig:remote.*.url:git@gitlab.com:logpoint/**"]
     path = ~/.gitconfig.logpoint
 [url "https://github.com/"]
-	insteadOf = git://github.com/
+    insteadOf = git://github.com/
 [remote "origin"]
-	prune = true
+    prune = true
