@@ -157,6 +157,8 @@ let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
 let g:ycm_error_symbol = '✗'
 let g:ycm_warning_symbol = '⚠'
+"Cool experimental feature, but displays a lot of extra text.
+"let g:ycm_enable_inlay_hints = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
 let g:ycm_gopls_binary_path = expand('$GOPATH/bin/gopls')
