@@ -1,10 +1,10 @@
 [submodule "dotbot"]
 	path = dotbot
-	url = git+ssh://git@github.com/anishathalye/dotbot.git
+	url = git@github.com:anishathalye/dotbot.git
 	ignore = dirty
 [submodule "Vundle.vim"]
 	path = Vundle.vim
-	url = git+ssh://git@github.com/VundleVim/Vundle.vim.git
+	url = git@github.com:VundleVim/Vundle.vim.git
 [submodule "tridactyl"]
 	path = tridactyl
-	url = git+ssh://git@github.com/tridactyl/native_messenger.git
+	url = git@github.com:tridactyl/native_messenger.git
