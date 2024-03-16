@@ -138,7 +138,7 @@ test -f $HOME/dotfiles/tmux/completion.sh && source $_
 if command -v tmux>/dev/null \
     && [[ ! "$TERM" =~ screen ]] \
     && [[ ! "$TERM" =~ tmux ]] \
-    && [ ! "$SSH_CONNECTION" ] \
+    && [ -z "$SSH_CONNECTION" ] \
     && [ -z "$TMUX" ]; then
     exec tmux -u
 fi
