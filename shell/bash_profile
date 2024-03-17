@@ -16,7 +16,7 @@ HISTIGNORE='pwd:ls:bg:fg:history'
 HISTSIZE=500000
 # maximum number of commands stored in history file
 # determines what can be read by bash on the next session
-HISTFILESIZE=-1  # No limit
+HISTFILESIZE=-1 # No limit
 
 ## Bash History Filestructure ##
 # 1) Save every session to a unique file s.t. writes occur after every command
@@ -26,7 +26,7 @@ HISTFILESIZE=-1  # No limit
 #   line count threshold is reached.
 HISTFOLDER=$HOME/.bash_histories
 mkdir -p $HISTFOLDER
-HISTFILEEXT=history      # only files in $HISTFOLDER with this extension will be read
+HISTFILEEXT=history # only files in $HISTFOLDER with this extension will be read
 
 # create unique file name for this session.
 HISTFILE=$HISTFOLDER/$(date +%Y-%m-%d_%H-%M-%S_%N).$HISTFILEEXT
@@ -37,17 +37,17 @@ toload=()
 linecount=0
 # Check if is really a file and count lines and only append to $toload if linecount under $HISTSIZE
 for fname in ${names[*]}; do
-    if test -f $fname; then
-        linecount=$((linecount+$(wc -l < $fname) ))
-        if test $linecount -ge $HISTSIZE; then
-            break
-        fi
-        toload+=($fname)
-    fi
+	if test -f $fname; then
+		linecount=$((linecount + $(wc -l <$fname)))
+		if test $linecount -ge $HISTSIZE; then
+			break
+		fi
+		toload+=($fname)
+	fi
 done
 # Beginning with the oldest, load files in $toload into bash history buffer
-for (( i=${#toload[*]}-1; i>=0; i-- )); do
-    history -r ${toload[$i]}
+for ((i = ${#toload[*]} - 1; i >= 0; i--)); do
+	history -r ${toload[$i]}
 done
 
 # Append to history file
@@ -78,7 +78,7 @@ alias sshh='$HOME/.sshh/sshh'
 
 # Make vim the default if it is installed
 if [ -x "$(command -v vim)" ]; then
-    alias vi=vim
+	alias vi=vim
 fi
 
 # Set default editor to vim
@@ -121,7 +121,7 @@ test -x "$(command -v pyenv)" && eval "$(pyenv init -)"
 ## SOURCES
 # Load other configs for MacOS
 if [[ "$OSTYPE" == "darwin"* ]] && [ -f ~/dotfiles/shell/bash_profile_macos ]; then
-    source ~/dotfiles/shell/bash_profile_macos
+	source ~/dotfiles/shell/bash_profile_macos
 fi
 
 # Git completion
@@ -133,13 +133,13 @@ test -f $HOME/bash_profile_local.sh && source $_
 
 ## TMUX
 # Use tmux by default on local connections
-if command -v tmux>/dev/null \
-    && [[ ! "$TERM" =~ screen ]] \
-    && [[ ! "$TERM" =~ tmux ]] \
-    && [ -z "$SSH_CONNECTION" ] \
-    && [ -z "$TMUX" ]; then
-        exec tmux -u
-        test -f $HOME/dotfiles/tmux/completion.sh && source $_
+if command -v tmux >/dev/null &&
+	[[ ! "$TERM" =~ screen ]] &&
+	[[ ! "$TERM" =~ tmux ]] &&
+	[ -z "$SSH_CONNECTION" ] &&
+	[ -z "$TMUX" ]; then
+	exec tmux -u
+	test -f $HOME/dotfiles/tmux/completion.sh && source $_
 fi
 ## // TMUX
 
@@ -150,34 +150,37 @@ fi
 # Get confirmation from the user before executing a command
 # Can be used like `confirm && echo "confirmed"`
 confirm() {
-    local prompt="$1"
-    read -r -p "${prompt:-Are you sure? [y/N]} " response
-    case "$response" in
-        [yY][eE][sS]|[yY])
-            true
-            ;;
-        *)
-            false
-            ;;
-    esac
+	local prompt="$1"
+	read -r -p "${prompt:-Are you sure? [y/N]} " response
+	case "$response" in
+	[yY][eE][sS] | [yY])
+		true
+		;;
+	*)
+		false
+		;;
+	esac
 }
 
 # Takes a path argument and returns it as an absolute path.
 # No-op if the path is already absolute.
 to_abs_path() {
-    local target="$1"
+	local target="$1"
 
-    if [ "$target" == "." ]; then
-        echo "$(pwd)"
-    elif [ "$target" == ".." ]; then
-        echo "$(dirname "$(pwd)")"
-    else
-        echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")"
-    fi
+	if [ "$target" == "." ]; then
+		echo "$(pwd)"
+	elif [ "$target" == ".." ]; then
+		echo "$(dirname "$(pwd)")"
+	else
+		echo "$(
+			cd "$(dirname "$1")"
+			pwd
+		)/$(basename "$1")"
+	fi
 }
 
 glab_url() {
-    local file="$1"
-    local base="https://$(git config --get remote.origin.url | sed 's/git@//g; s/\.git//g; s/:/\//g')"
-    echo $base/-/blob/main/$file
+	local file="$1"
+	local base="https://$(git config --get remote.origin.url | sed 's/git@//g; s/\.git//g; s/:/\//g')"
+	echo $base/-/blob/main/$file
 }
