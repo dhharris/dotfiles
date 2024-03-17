@@ -133,14 +133,13 @@ test -f $HOME/bash_profile_local.sh && source $_
 
 ## TMUX
 # Use tmux by default on local connections
-test -f $HOME/dotfiles/tmux/completion.sh && source $_
-
 if command -v tmux>/dev/null \
     && [[ ! "$TERM" =~ screen ]] \
     && [[ ! "$TERM" =~ tmux ]] \
     && [ -z "$SSH_CONNECTION" ] \
     && [ -z "$TMUX" ]; then
-    exec tmux -u
+        exec tmux -u
+        test -f $HOME/dotfiles/tmux/completion.sh && source $_
 fi
 ## // TMUX
 
