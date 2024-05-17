@@ -123,6 +123,7 @@ seturl gitlab.com allowautofocus true
 seturl logpoint.atlassian.net allowautofocus true
 seturl logpoint.cloud allowautofocus true
 seturl localhost allowautofocus true
+seturl carbon.now.sh allowautofocus true
 
 "
 " URL redirects
