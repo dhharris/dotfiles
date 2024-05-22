@@ -138,7 +138,7 @@ if command -v tmux >/dev/null &&
 	[[ ! "$TERM" =~ tmux ]] &&
 	[ -z "$SSH_CONNECTION" ] &&
 	[ -z "$TMUX" ]; then
-	exec tmux -u
+	exec tmux new-session -A -s main
 	test -f $HOME/dotfiles/tmux/completion.sh && source $_
 fi
 ## // TMUX
