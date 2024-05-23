@@ -170,14 +170,17 @@ nnoremap <leader>gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Use jedi-vim instead
 let g:ycm_filetype_blacklist = {'python': 1}
 " Add custom language servers here
-let g:ycm_language_server = [
-    \   {
-    \     'name': 'terraform',
-    \     'cmdline': [ 'terraform-ls', 'serve' ],
-    \     'filetypes': [ 'terraform' ],
-    \     'project_root_files': [ '*.tf', '*.tfvars' ],
-    \   },
-    \ ]
+let g:ycm_language_server = []
+if executable('terraform-ls')
+    let g:ycm_language_server += [
+        \   {
+        \     'name': 'terraform',
+        \     'cmdline': [ 'terraform-ls', 'serve' ],
+        \     'filetypes': [ 'terraform' ],
+        \     'project_root_files': [ '*.tf', '*.tfvars' ],
+        \   },
+        \ ]
+endif
 " python-syntax
 let g:python_highlight_all = 1
 " vim-markdown
