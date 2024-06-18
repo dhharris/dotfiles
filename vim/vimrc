@@ -46,8 +46,8 @@ Plugin 'VundleVim/Vundle.vim'
 """""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""
-" YCM auto completion / syntax checking engine
-Plugin 'ycm-core/YouCompleteMe'
+" Asynchronous Lint Engine
+Plugin 'dense-analysis/ale'
 " Format rust code
 Plugin 'rust-lang/rust.vim'
 " Add maktaba and codefmt to the runtimepath.
@@ -149,38 +149,19 @@ set pastetoggle=<F3>
 """""""""""""""""""""""""""""""
 " => Plugins Configuration
 """""""""""""""""""""""""""""""
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-" Use vim :pwd instead of file location
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
-let g:ycm_error_symbol = '✗'
-let g:ycm_warning_symbol = '⚠'
-"Cool experimental feature, but displays a lot of extra text.
-"let g:ycm_enable_inlay_hints = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
-let g:ycm_gopls_binary_path = expand('$GOPATH/bin/gopls')
-let g:ycm_seed_identifiers_with_syntax = 1
-" nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
-nnoremap <leader>gf :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
-" Use jedi-vim instead
-let g:ycm_filetype_blacklist = {'python': 1}
-" Add custom language servers here
-let g:ycm_language_server = []
-if executable('terraform-ls')
-    let g:ycm_language_server += [
-        \   {
-        \     'name': 'terraform',
-        \     'cmdline': [ 'terraform-ls', 'serve' ],
-        \     'filetypes': [ 'terraform' ],
-        \     'project_root_files': [ '*.tf', '*.tfvars' ],
-        \   },
-        \ ]
-endif
+" Ale
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+nnoremap <leader>gf :ALEGoToDefinition<CR>
+inoremap <leader>a <Plug>(ale_complete)
+set omnifunc=ale#completion#OmniFunc
+" Cycle completion suggestions with tab / shift-tab
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+let b:ale_linters = { 'python': ['black', 'mypy', 'pylint'] }
+let b:ale_fixers = { 'python': ['black'] }
+let b:ale_fix_on_save = 1
 " python-syntax
 let g:python_highlight_all = 1
 " vim-markdown
