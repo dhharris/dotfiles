@@ -113,9 +113,6 @@ export PATH="$HOME/scripts:$PATH"
 
 # cowspeak "art"
 export COWPATH="/usr/share/cowsay"
-
-# Configure pyenv - placed near end since it also manipulates PATH
-test -x "$(command -v pyenv)" && eval "$(pyenv init -)"
 ## // PATH
 
 ## SOURCES
