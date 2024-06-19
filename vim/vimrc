@@ -444,7 +444,8 @@ set splitbelow
 set splitright
 
 " Change directory to the current buffer when opening files
-set autochdir
+" This is turned off because it causes issues with ALE linters
+"set autochdir
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
