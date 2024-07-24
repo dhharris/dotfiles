@@ -98,6 +98,8 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'pearofducks/ansible-vim'
 " More full featured autocompletion for python compared to YCM
 Plugin 'davidhalter/jedi-vim'
+" BUCK syntax
+Plugin 'cappyzawa/starlark.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -318,8 +320,8 @@ autocmd BufEnter *.cconf :setlocal filetype=python
 autocmd BufEnter *.mcconf :setlocal filetype=python
 autocmd BufEnter *.cinc :setlocal filetype=python
 autocmd BufEnter *.tw :setlocal filetype=python
-autocmd BufEnter TARGETS :setlocal filetype=json
-autocmd BufEnter BUCK :setlocal filetype=json
+autocmd BufEnter TARGETS :setlocal filetype=starlark
+autocmd BufEnter BUCK :setlocal filetype=starlark
 
 " Anything that contains bash in the filename is associated with bash
 autocmd BufEnter *bash* :setlocal filetype=sh
@@ -377,6 +379,7 @@ autocmd FileType text setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType starlark setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " Automatically break lines
 set lbr
