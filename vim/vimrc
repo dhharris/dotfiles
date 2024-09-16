@@ -148,6 +148,10 @@ command W w !sudo tee % > /dev/null
 " Toggle paste mode to prevent auto indents
 set pastetoggle=<F3>
 
+" In visual mode, <leader>y will copy into the system clipboard
+" Only works on macos.
+vnoremap <silent> <leader>y :<CR>:let @a=@" \| execute "normal! vgvy" \| let res=system("pbcopy", @") \| let @"=@a<CR>
+
 """""""""""""""""""""""""""""""
 " => Plugins Configuration
 """""""""""""""""""""""""""""""
