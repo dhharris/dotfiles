@@ -9,7 +9,7 @@ shopt -s checkwinsize
 ## HISTORY
 
 # Don't store specific lines
-HISTCONTROL=ignoredups:erasedups
+HISTCONTROL=ignoredups:erasedups:ignorespace
 HISTIGNORE='pwd:ls:bg:fg:history'
 # maximum number of commands that bash can store in memory
 # this is used by up/down, ctrl-r
