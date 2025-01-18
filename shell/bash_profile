@@ -57,7 +57,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # save history after each command instead after only closing the session
-PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -n; enter_directory; $PROMPT_COMMAND"
 
 ## // HISTORY
 
@@ -110,6 +110,11 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # cowspeak "art"
 export COWPATH="/usr/share/cowsay"
@@ -180,4 +185,17 @@ glab_url() {
 	local file="$1"
 	local base="https://$(git config --get remote.origin.url | sed 's/git@//g; s/\.git//g; s/:/\//g')"
 	echo $base/-/blob/main/$file
+}
+
+# Run 'nvm use' automatically every time there's
+# a .nvmrc file in the directory.
+enter_directory() {
+    if [ "$PWD" = "$PREV_PWD" ]; then
+        return
+    fi
+
+    PREV_PWD="$PWD"
+    if [ -f ".nvmrc" ] && [ -d "${HOME}/.nvm" ]; then
+        nvm use
+    fi
 }
