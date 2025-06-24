@@ -42,13 +42,15 @@ bind n findnext 1
 bind N findnext -1
 bind <space> nohlsearch
 
-" Use capitalized left/right keys to move through tabs
-bind H tp
-bind L tn
+" Use capitalized up/down keys to move through tabs
+" Updated in 2025 from H/L due to Firefox vertical tabs
+bind K tp
+bind J tn
 
-" Capitalized up/down keys to move back/forward through history
-bind J back
-bind K forward
+" Capitalized left/right keys to move back/forward through history
+" Updated in 2025 from H/L due to Firefox vertical tabs
+bind H back
+bind L forward
 
 " Stupid workaround to let hint -; be used with composite which steals semi-colons
 command hint_focus hint -;
