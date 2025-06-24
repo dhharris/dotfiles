@@ -64,9 +64,7 @@ command wayback composite get_current_url | tabopen wb
 " Ignore tridactyl input on these sites.
 " See :help blacklistadd
 "
-blacklistadd studieskolen.danishtogo.dk
 blacklistadd 192.168.86.70
-blacklistadd logpoint.atlassian.net
 
 "
 " Custom Search Engines
@@ -88,6 +86,10 @@ set searchurls.py https://docs.python.org/3/search.html?q=%s
 set searchurls.yf https://finance.yahoo.com/quote/%s?ltr=1
 " LP Jira/Tasks shortcut
 set searchurls.t https://logpoint.atlassian.net/browse/%s
+" LP Gitlab shortcut
+set searchurls.gl https://gitlab.com/logpoint/%s
+" LP Web Deployment shortcut
+set jsurls.portal query => `https://mr-${query}-portal.euw1.web.svc-sbx.logpoint.cloud`
 " Terraform docs
 set searchurls.tf https://www.google.com/search?gfns=1&sourceid=navclient&q=terraform+%s
 
@@ -134,7 +136,7 @@ seturl pseudoeditor.com allowautofocus true
 "
 
 " New reddit is bad
-autocmd DocStart ^http(s?)://www.reddit.com/r/ js tri.excmds.urlmodify("-t", "www", "old")
+"autocmd DocStart ^http(s?)://www.reddit.com/r/ js tri.excmds.urlmodify("-t", "www", "old")
 " Don't use fandom RS wiki
 autocmd DocStart ^http(s?)://oldschoolrunescape.fandom.com js tri.excmds.urlmodify("-t", "oldschoolrunescape.fandom.com", "oldschool.runescape.wiki")
 " Duck Duck Go sucks
