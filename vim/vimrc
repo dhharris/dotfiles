@@ -165,8 +165,8 @@ set omnifunc=ale#completion#OmniFunc
 " Cycle completion suggestions with tab / shift-tab
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-let b:ale_linters = { 'python': ['black', 'mypy', 'pylint'] }
-let b:ale_fixers = { 'python': ['black'] }
+"let b:ale_linters = { 'python': ['black', 'mypy', 'pylint'] }
+"let b:ale_fixers = { 'python': ['black'] }
 let b:ale_fix_on_save = 1
 " python-syntax
 let g:python_highlight_all = 1
