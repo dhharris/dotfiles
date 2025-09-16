@@ -1,0 +1,8 @@
+# vim: set filetype=config:
+
+
+theme = "Gruvbox Dark Hard"
+font-family = "SF Mono"
+font-size = 12
+font-thicken = 1
+adjust-cell-width = -1
