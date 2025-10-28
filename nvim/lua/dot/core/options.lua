@@ -7,9 +7,6 @@ vim.cmd("let g:netrw_liststyle = 3")
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
 
--- Be smart when using tabs
-vim.opt.smarttab = true
-
 -- Default tab/indent settings
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
@@ -87,10 +84,6 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "markdown", "text", "hgcommit" },
     command = "setlocal textwidth=0 wrapmargin=0",
 })
-
--- Auto indent and wrap
-vim.opt.autoindent = true
-vim.opt.wrap = true
 
 ---------------------------------------------------------------
 -- => Colors and Fonts
