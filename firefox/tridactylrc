@@ -79,6 +79,7 @@ set searchurls.archive https://archive.org/search.php?query=%s
 set searchurls.mb https://musicbrainz.org/search?query=%s&type=release&method=indexed
 set searchurls.wb https://web.archive.org/web/*/%s
 set searchurls.w https://logpoint.atlassian.net/wiki/search?text=%s&spaces=CLD%2CCE
+set searchurls.ddg https://www.duckduckgo.com/?q=%s
 
 " Library Genesis (for textbooks, etc)
 set searchurls.libgen http://gen.lib.rus.ec/search.php?req=%s
