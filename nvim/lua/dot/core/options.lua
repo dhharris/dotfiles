@@ -1,5 +1,6 @@
 -- Default netrw to tree liststyle
 vim.cmd("let g:netrw_liststyle = 3")
+vim.g.mapleader = ","
 
 ---------------------------------------------------------------
 -- => Text, tab, indent and lines
