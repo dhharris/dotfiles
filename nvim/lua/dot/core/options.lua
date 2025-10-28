@@ -58,7 +58,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Highlight lines beyond the column limit
-vim.api.nvim_set_hl(0, "OverLength", { fg = "#ffffff", bg = "#592929" })
+vim.api.nvim_set_hl(0, "OverLength", {
+  fg = "#ffffff",
+  bg = "#9d0006"  -- Gruvbox faded_red. TODO: Source from actual gruvbox
+})
 vim.api.nvim_set_hl(0, "SpellBad", { underline = true })
 
 -- Match highlight for long lines
@@ -99,3 +102,39 @@ vim.opt.encoding = "utf-8"
 
 -- Clear highlighting with ESC
 vim.keymap.set("n", "<esc><esc>", "<cmd>noh<CR>")
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank({timeout=300})
+    end,
+})
+
+---------------------------------------------------------------
+-- => Moving around, tabs, windows and buffers
+---------------------------------------------------------------
+-- More natural split opening
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Move between windows without C-W
+for _, key in ipairs({ "h", "j", "k", "l" }) do
+  vim.keymap.set("n", "<C-" .. key .. ">", "<C-W>" .. key)
+end
+
+-- In visual mode, <leader>y will copy selection into the macOS clipboard
+-- Only works on macOS
+vim.keymap.set("v", "<leader>y", function()
+  -- Save current register
+  local save_reg = vim.fn.getreg('"')
+  local save_type = vim.fn.getregtype('"')
+
+  -- Copy the selected text to default register
+  vim.cmd('normal! vgvy')
+
+  -- Send it to macOS clipboard via pbcopy
+  vim.fn.system('pbcopy', vim.fn.getreg('"'))
+
+  -- Restore previous register
+  vim.fn.setreg('"', save_reg, save_type)
+end, { desc = "Copy visual selection to macOS clipboard", silent = true })
