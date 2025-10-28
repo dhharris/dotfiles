@@ -44,6 +44,9 @@
     ~/.config/ghostty/config:
       create: true
       path: term/ghostty_config
+    ~/.config/nvim:
+      create: true
+      path: nvim
 
 - shell:
     - command: '[[ "$SHELL" =~ "bash" ]] || chsh -s $(which bash)'
