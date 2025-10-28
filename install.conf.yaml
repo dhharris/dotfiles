@@ -41,6 +41,9 @@
     ~/.bundle/Vundle.vim:
       create: true
       path: Vundle.vim
+    ~/.config/ghostty/config:
+      create: true
+      path: term/ghostty_config
 
 - shell:
     - command: '[[ "$SHELL" =~ "bash" ]] || chsh -s $(which bash)'
