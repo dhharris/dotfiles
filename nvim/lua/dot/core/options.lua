@@ -107,6 +107,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 ---------------------------------------------------------------
 -- => Moving around, tabs, windows and buffers
 ---------------------------------------------------------------
+-- Enable mode shapes, "Cursor" highlight, and blinking
+vim.opt.guicursor = table.concat({
+  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50",
+  "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+  "sm:block-blinkwait175-blinkoff150-blinkon175"
+}, ",")
+
 -- More natural split opening
 vim.opt.splitbelow = true
 vim.opt.splitright = true
