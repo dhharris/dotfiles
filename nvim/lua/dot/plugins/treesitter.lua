@@ -1,6 +1,6 @@
 return {
-  -- TODO: Figure out why treesitter plugin is necessary
-  -- add more treesitter parsers
+  -- Treesitter provides better syntax highlighting by understanding the code as
+  -- a tree of programming language constructs (field, method, etc)
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
