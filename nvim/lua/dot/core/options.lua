@@ -5,6 +5,21 @@ vim.g.mapleader = ","
 ---------------------------------------------------------------
 -- => Text, tab, indent and lines
 ---------------------------------------------------------------
+-- Always show the status line
+vim.opt.laststatus = 2
+
+-- Define the status line dynamically
+vim.opt.statusline = table.concat({
+  "%F",          -- Full path to file
+  "%m",          -- Modified flag
+  "%r",          -- Readonly flag
+  "%h",          -- Help flag
+  "%w",          -- Preview window flag
+  "  CWD: %{getcwd()}",
+  "  Line: %l",
+  "  Column: %c"
+})
+
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
 
