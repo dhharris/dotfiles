@@ -25,6 +25,8 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "gopls",
+        "jedi_language_server",
+        "terraformls",
       },
     })
   end,

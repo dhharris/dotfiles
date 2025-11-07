@@ -11,10 +11,10 @@ return {
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-      callback = function(ev)
+      callback = function(event)
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf, silent = true }
+        local opts = { buffer = event.buf, silent = true }
 
         -- set keybinds
         opts.desc = "Go to declaration"
@@ -32,21 +32,22 @@ return {
         -- opts.desc = "Go to next diagnostic"
         -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
-        -- TODO: Make it show after hovering for some amount of seconds
         opts.desc = "Show documentation for what is under cursor"
         vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-      end,
+      end, -- callback
     })
 
-		vim.diagnostic.config({
-			signs = {
-				text = {
-					[vim.diagnostic.severity.ERROR] = "✗ ",
-					[vim.diagnostic.severity.WARN]  = "⚠ ",
-					[vim.diagnostic.severity.HINT]  = "➜ ",
-					[vim.diagnostic.severity.INFO]  = "i ",
-				},
-			},
-		})
+    vim.diagnostic.config({
+      severity_sort = true,
+      float = { border = 'rounded', source = 'if_many' },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "✗ ",
+          [vim.diagnostic.severity.WARN]  = "⚠ ",
+          [vim.diagnostic.severity.HINT]  = "➜ ",
+          [vim.diagnostic.severity.INFO]  = "i ",
+        },
+      },
+    })
   end,
 }
