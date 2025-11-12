@@ -14,6 +14,7 @@ return {
           "c",
           "go",
           "bash",
+          "proto",
           "python",
           "terraform",
           "tsx",
