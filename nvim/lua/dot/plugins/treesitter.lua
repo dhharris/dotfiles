@@ -1,28 +1,52 @@
-return {
-  -- Treesitter provides better syntax highlighting by understanding the code as
-  -- a tree of programming language constructs (field, method, etc)
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        endwise = { enable = true },
-        highlight = {
-          enable = true,
-        },
-        ensure_installed = {
-          "c",
-          "go",
-          "bash",
-          "proto",
-          "python",
-          "terraform",
-          "tsx",
-          "typescript",
-          "vim",
-          "yaml",
-        },
-      })
-    end,
-  }
+-- Highlight, edit, and navigate code
+
+local treesitter = {
+  "nvim-treesitter/nvim-treesitter",
+
+  lazy = false,
+  branch = "main",
+  build = ":TSUpdate",
 }
+
+treesitter.config = function()
+  -- Keep alphabetical order when managing this list
+  local parsers = {
+    "c",
+    "go",
+    "bash",
+    "proto",
+    "python",
+    "terraform",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+  }
+
+  require("nvim-treesitter").install(parsers)
+
+  -- uncomment to automatically install syntax highlighting for new file types
+  -- vim.api.nvim_create_autocmd("FileType", {
+  --   callback = function(args)
+  --     local buf, filetype = args.buf, args.match
+
+  --     local language = vim.treesitter.language.get_lang(filetype)
+  --     if not language then
+  --       return
+  --     end
+
+  --     -- check if parser exists and load it
+  --     if not vim.treesitter.language.add(language) then
+  --       return
+  --     end
+
+  --     -- enables syntax highlighting and other treesitter features
+  --     vim.treesitter.start(buf, language)
+
+  --     -- enables treesitter based indentation
+  --     vim.bo.indentexpr = "v:lua.require"nvim-treesitter".indentexpr()"
+  --   end,
+  -- })
+end
+
+return treesitter
