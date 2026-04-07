@@ -36,8 +36,10 @@ local ft_opts = {
     text     = { width = 2 },
     php      = { width = 2 },
     python   = { width = 4 },
-    go       = { width = 4, noexpandtab = true },
+    go       = { width = 4, expandtab = false },
     starlark = { width = 2 },
+    terraform = { width = 2 },
+    ["terraform-vars"] = { width = 2 },
     lua = { width = 2 },
 }
 
