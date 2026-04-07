@@ -140,19 +140,8 @@ for _, key in ipairs({ "h", "j", "k", "l" }) do
   vim.keymap.set("n", "<C-" .. key .. ">", "<C-W>" .. key)
 end
 
--- In visual mode, <leader>y will copy selection into the macOS clipboard
--- Only works on macOS
-vim.keymap.set("v", "<leader>y", function()
-  -- Save current register
-  local save_reg = vim.fn.getreg('"')
-  local save_type = vim.fn.getregtype('"')
-
-  -- Copy the selected text to default register
-  vim.cmd('normal! vgvy')
-
-  -- Send it to macOS clipboard via pbcopy
-  vim.fn.system('pbcopy', vim.fn.getreg('"'))
-
-  -- Restore previous register
-  vim.fn.setreg('"', save_reg, save_type)
-end, { desc = "Copy visual selection to macOS clipboard", silent = true })
+-- In visual mode, <leader>y will copy selection into the system clipboard.
+vim.keymap.set("x", "<leader>y", '"+y', {
+  desc = "Copy visual selection to macOS clipboard",
+  silent = true,
+})
