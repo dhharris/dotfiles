@@ -1,19 +1,28 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+  },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
+    require("lspconfig")
 
-    -- import mason_lspconfig plugin
-    -- TODO: Make import more sane - require in dependencies here
-    local mason_lspconfig = require("mason-lspconfig")
+    local jedi_language_server = vim.fn.stdpath("data") .. "/mason/bin/jedi-language-server"
+    local jedi_config = {}
+    if vim.fn.executable(jedi_language_server) == 1 then
+      jedi_config.cmd = { jedi_language_server }
+    end
+
+    vim.lsp.config("jedi_language_server", jedi_config)
+    vim.lsp.enable("jedi_language_server")
+    vim.opt.completeopt:append({ "menuone", "noselect", "popup" })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(event)
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
         local opts = { buffer = event.buf, silent = true }
 
         -- set keybinds
@@ -31,6 +40,9 @@ return {
 
         -- opts.desc = "Go to next diagnostic"
         -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+        if client:supports_method("textDocument/completion") then
+          vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+        end
 
         opts.desc = "Show documentation for what is under cursor"
         vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
