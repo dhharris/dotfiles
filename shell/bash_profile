@@ -34,16 +34,8 @@ HISTFILE=$HISTFOLDER/$(date +%Y-%m-%d_%H-%M-%S_%N).$HISTFILEEXT
 # -t lists newest files first
 names=($(ls -t $HISTFOLDER/*.$HISTFILEEXT 2>/dev/null))
 toload=()
-linecount=0
-# Check if is really a file and count lines and only append to $toload if linecount under $HISTSIZE
 for fname in ${names[*]}; do
-	if test -f $fname; then
-		linecount=$((linecount + $(wc -l <$fname)))
-		if test $linecount -ge $HISTSIZE; then
-			break
-		fi
-		toload+=($fname)
-	fi
+	test -f $fname && toload+=($fname)
 done
 # Beginning with the oldest, load files in $toload into bash history buffer
 for ((i = ${#toload[*]} - 1; i >= 0; i--)); do
@@ -118,7 +110,7 @@ export PATH="$HOME/scripts:$PATH"
 
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" --no-use  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # cowspeak "art"
