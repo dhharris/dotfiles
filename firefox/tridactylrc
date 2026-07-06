@@ -140,6 +140,10 @@ seturl pseudoeditor.com allowautofocus true
 seturl sadservers.com allowautofocus true
 seturl 3byggetilbud.dk allowautofocus true
 
+
+" Meme font on chatgpt
+autocmd DocStart ^http(s?)://chatgpt.com js console.log("Hello"); document.body.style.fontFamily = "Papyrus, fantasy";
+
 "
 " URL redirects
 "
