@@ -63,6 +63,10 @@ for ft, opts in pairs(ft_opts) do
     })
 end
 
+-- Source .nvim.lua if present in current directory
+vim.opt.exrc = true
+vim.opt.secure = true
+
 -- Line breaking
 vim.opt.linebreak = true
 vim.opt.textwidth = 80
