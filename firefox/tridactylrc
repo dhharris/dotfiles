@@ -74,7 +74,7 @@ blacklistadd 192.168.86.70
 "
 " Custom Search Engines
 "
-set searchurls.g https://www.google.com/search?q=%s
+set searchurls.g https://www.google.com/search?q=%s&udm=14
 set searchurls.lucky https://www.google.com/search?gfns=1&sourceid=navclient&q=%s
 set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.osw https://oldschool.runescape.wiki/w/Special:Search?search=%s
