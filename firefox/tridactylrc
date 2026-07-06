@@ -137,6 +137,8 @@ seturl carbon.now.sh allowautofocus true
 seturl logpoint.atlassian.net allowautofocus true
 seturl typescriptlang.org allowautofocus true
 seturl pseudoeditor.com allowautofocus true
+seturl sadservers.com allowautofocus true
+seturl 3byggetilbud.dk allowautofocus true
 
 "
 " URL redirects
