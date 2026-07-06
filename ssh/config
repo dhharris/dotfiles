@@ -10,15 +10,6 @@ Host gitlab.com
   ControlPersist 30m
   ServerAliveInterval 30
 
-Host bitbucket.logpoint.com
-  IdentityFile ~/.ssh/id_rsa_logpoint
-  HostKeyAlgorithms = +ssh-rsa
-  PubkeyAcceptedAlgorithms = +ssh-rsa
-  # Configuration used by gitlab
-  # See https://gitlab.com/gitlab-com/gl-infra/reliability/-/blob/master/onboarding/ssh-config
-  ControlPersist 30m
-  ServerAliveInterval 30
-
 Host freenas.local
   IdentityFile ~/.ssh/freenas_rsa
 
