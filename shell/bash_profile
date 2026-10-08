@@ -133,7 +133,8 @@ test -f $HOME/bash_profile_local.sh && source $_
 
 ## TMUX
 # Use tmux by default on local connections
-if command -v tmux >/dev/null &&
+if [[ $- == *i* ]] &&
+	command -v tmux >/dev/null &&
 	[[ ! "$TERM" =~ screen ]] &&
 	[[ ! "$TERM" =~ tmux ]] &&
 	[ -z "$SSH_CONNECTION" ] &&
